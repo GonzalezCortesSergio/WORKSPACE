@@ -107,9 +107,37 @@ public class Hotel {
 		}
 	}
 	
+	public void findByOcupado () {
+		
+		int i = 0;
+		
+		
+		while (i < numHabitaciones ) {
+			
+			Habitacion deLista = listaHabitaciones [i];
+			
+			if (!deLista.isOcupada()) {
+				
+				System.out.println(listaHabitaciones[i].toString());
+				System.out.println();
+				i++;
+			}
+			
+			else {
+				
+				i++;
+			}
+		}
+		
+	
+		
+		
+		
+	}
+	
 	public double calcularPrecioFinal (double precioAdicional, String nCliente) {
 		
-		return findByNCliente(nCliente).getPrecio()+precioAdicional;
+		return (findByNCliente(nCliente).getPrecio()*findByNCliente(nCliente).getnDias())+precioAdicional;
 	}
 	
 	
