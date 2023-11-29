@@ -116,7 +116,7 @@ public class Principal {
 		
 		}while (opcion != 0);
 		
-		System.out.println("Gracias por utilizar el programa");
+		System.out.println("Que tenga un buen día");
 	}
 	
 	
