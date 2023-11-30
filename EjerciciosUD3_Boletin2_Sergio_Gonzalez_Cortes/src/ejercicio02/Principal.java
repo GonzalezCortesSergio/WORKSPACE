@@ -154,7 +154,7 @@ public class Principal {
 					
 				case 3:
 					
-					h.findByOcupado();
+					h.findByNOcupado();
 					
 					System.out.println("¿Quiere vender una habitación?");
 					
