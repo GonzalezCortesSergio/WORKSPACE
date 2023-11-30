@@ -107,7 +107,7 @@ public class Hotel {
 		}
 	}
 	
-	public void findByOcupado () {
+	public void findByNOcupado () {
 		
 		int i = 0;
 		
@@ -118,7 +118,7 @@ public class Hotel {
 			
 			if (!deLista.isOcupada()) {
 				
-				System.out.println(listaHabitaciones[i].toString());
+				System.out.println(listaHabitaciones[i]);
 				System.out.println();
 				i++;
 			}
@@ -133,6 +133,29 @@ public class Hotel {
 		
 		
 		
+	}
+	
+	public void findByOcupado () {
+		
+		int i = 0;
+		
+		while (i < numHabitaciones) {
+			
+			Habitacion deLista = listaHabitaciones[i];
+			
+			
+			if (deLista.isOcupada()) {
+				
+				System.out.println(listaHabitaciones[i]);
+				System.out.println("");
+				i++;
+			}
+			
+			else {
+				
+				i++;
+			}
+		}
 	}
 	
 	public double calcularPrecioFinal (double precioAdicional, String nCliente) {

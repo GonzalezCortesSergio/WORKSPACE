@@ -45,6 +45,7 @@ public class Principal {
 					Opción 1:	Agregar una habitación
 					Opción 2:	Mostrar Factura
 					Opción 3:	Ver habitaciones disponibles
+					Opción 4:	Ver habitaciones ocupadas
 					Opción 0:	Salir
 					---------------------------------------------
 					""");
@@ -144,7 +145,7 @@ public class Principal {
 							+ " de la habitación");
 					nCliente = s.nextLine();
 					
-					System.out.println(h.findByNCliente(nCliente).toString());
+					System.out.println(h.findByNCliente(nCliente)); //No uses toString COJONE
 					System.out.println();
 					System.out.printf("Precio a pagar: %.2f€\n", h.calcularPrecioFinal(precioAdicional, nCliente));
 					
@@ -219,6 +220,12 @@ public class Principal {
 						}
 						
 					}while (opcionVenta != 0 && opcionVenta != 1);
+					
+					break;
+					
+				case 4:
+					
+					h.findByOcupado();
 					
 					break;
 					
