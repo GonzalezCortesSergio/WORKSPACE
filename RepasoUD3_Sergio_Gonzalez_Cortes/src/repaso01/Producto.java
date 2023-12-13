@@ -64,4 +64,15 @@ public class Producto {
 		
 		this.enVenta = enVenta;
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "Producto [nombre=" + nombre + ", precioFabrica=" + precioFabrica + ", seccion=" + seccion + ", enVenta="
+				+ enVenta + "]";
+	}
+	
+	
+	
 }
