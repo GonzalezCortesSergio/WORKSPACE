@@ -71,9 +71,10 @@ public class Tienda {
 		
 		for (int i = 0; i < numProductos; i++) {
 			
-			if (listaProductos[i].isEnVenta())
-			System.out.println(listaProductos[i]);
-			
+			if (listaProductos[i].isEnVenta()) {
+				
+				System.out.println(listaProductos[i]);
+			}
 		}
 	}
 	
