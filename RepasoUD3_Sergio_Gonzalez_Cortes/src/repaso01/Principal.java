@@ -10,7 +10,7 @@ public class Principal {
 	
 		//Variables
 		
-		String nombre, aux;
+		String nombre, id,  aux;
 		double precioFabrica;
 		int seccion; // 1 Alimentación, 2 Electrónica, 3 Ropa
 		int tam = 100, opc;
@@ -21,6 +21,7 @@ public class Principal {
 		//Instanciar array
 		Producto [] listaProductos = new Producto [tam];
 		
+		
 		//Instanciar tienda
 		Tienda t = new Tienda (listaProductos, 0);
 		
@@ -29,7 +30,7 @@ public class Principal {
 			
 			System.out.println("1. Agregar nuevo producto");
 			System.out.println("2. Mostrar productos");
-			System.out.println("3. Eliminar producto");
+			System.out.println("3. Buscar por sección");
 			System.out.println("0. Salir");
 			
 			aux = s.nextLine();
@@ -53,7 +54,10 @@ public class Principal {
 					aux = s.nextLine();
 					seccion = Integer.parseInt(aux);
 					
-					t.agregarProducto(new Producto (nombre, precioFabrica, seccion, true));
+					System.out.println("Diga id");
+					id = s.nextLine();
+					
+					t.agregarProducto(new Producto (nombre, precioFabrica, seccion, true, id));
 					
 					
 					break;
@@ -66,10 +70,11 @@ public class Principal {
 					
 				case 3:
 					
-					System.out.println("Diga el producto que quiere eliminar");
-					nombre = s.nextLine();
+					System.out.println("Diga la sección que quiere buscar");
+					aux = s.nextLine();
+					seccion = Integer.parseInt(aux);
 					
-					t.eliminarProducto(nombre);
+					t.mostrarLista(t.buscarBySeccion(seccion));
 					
 					break;
 					

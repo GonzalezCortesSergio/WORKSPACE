@@ -9,15 +9,18 @@ public class Producto {
 	private double precioFabrica;
 	private int seccion; // 1 Alimentación, 2 Electrónica, 3 Ropa
 	private boolean enVenta;
+	private String id;
+	
 	
 	//Constructor
 	
-	public Producto (String nombre, double precioFabrica, int seccion, boolean enVenta) {
+	public Producto (String nombre, double precioFabrica, int seccion, boolean enVenta, String id) {
 		
 		this.nombre = nombre;
 		this.precioFabrica = precioFabrica;
 		this.seccion = seccion;
 		this.enVenta = enVenta;
+		this.id = id;
 	}
 	
 
@@ -64,14 +67,25 @@ public class Producto {
 		
 		this.enVenta = enVenta;
 	}
+	
+	public String getId () {
+		
+		return id;
+	}
+	
+	public void setId (String id) {
+		
+		this.id = id;
+	}
 
 
 
 	@Override
 	public String toString() {
 		return "Producto [nombre=" + nombre + ", precioFabrica=" + precioFabrica + ", seccion=" + seccion + ", enVenta="
-				+ enVenta + "]";
+				+ enVenta + ", id=" + id +"]";
 	}
+	
 	
 	
 	
