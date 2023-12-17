@@ -78,7 +78,36 @@ public class Tienda {
 		}
 	}
 	
-	public Producto findByNombre (String nombre) {
+	public Producto [] buscarBySeccion (int seccion) {
+		
+		int i = 0;
+		
+		Producto [] listaEncontrados = new Producto [numProductos];
+		
+		while (i < numProductos) {
+			
+			if (listaProductos[i].getSeccion() == seccion) {
+				
+				listaEncontrados[i] = listaProductos[i];
+			}
+			i++;
+		}
+		
+		return listaEncontrados;
+	
+	}
+	
+	public void mostrarLista (Producto[] listaEncontrados) {
+		
+		for (int i = 0; i < listaEncontrados.length; i++) {
+			
+			if (listaEncontrados[i] != null) {
+				System.out.println(listaEncontrados[i]);
+			}
+		}
+	}
+	
+	public Producto buscarPorId (String id) {
 		
 		boolean encontrado = false;
 		int i = 0;
@@ -87,7 +116,7 @@ public class Tienda {
 			
 			Producto deLista = listaProductos[i];
 			
-			if (deLista.getNombre().equals(nombre)) {
+			if (deLista.getId().equals(id)) {
 				
 				encontrado = true;
 			}
@@ -109,10 +138,12 @@ public class Tienda {
 		}
 	}
 	
-	public void eliminarProducto (String nombre){
+	public double calcularPrecioVentaPublico (double porcentaje, String id) {
 		
-		findByNombre(nombre).setEnVenta(false);
+		return buscarPorId(id).getPrecioFabrica()+(buscarPorId(id).getPrecioFabrica()*porcentaje);
 	}
+	
+	
 	
 	
 }
