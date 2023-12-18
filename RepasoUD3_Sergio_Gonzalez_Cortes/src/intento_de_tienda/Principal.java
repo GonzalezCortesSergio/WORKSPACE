@@ -11,7 +11,7 @@ public class Principal {
 		
 		String aux, nombre, id;
 		int opc;
-		double precioUnitario;
+		double precioUnitario, porcentaje;
 		
 		//Instanciar Scanner
 		Scanner s = new Scanner(System.in);
@@ -40,8 +40,9 @@ public class Principal {
 					--------------------------------------------------------------------
 					Opción 1:	Agregar producto
 					Opción 2:	Ver productos en venta
-					Opción 3:	Ver productos descatalagados
+					Opción 3:	Ver productos descatalogados
 					Opción 4:	Descatalogar productos
+					Opción 5:	Calcular precio de venta al público
 					Opción 0:	Salir
 					--------------------------------------------------------------------
 					
@@ -87,6 +88,18 @@ public class Principal {
 					
 					break;
 					
+				case 5:
+					
+					System.out.println("Diga el id del producto que quiere modificar");
+					id = s.nextLine();
+					
+					System.out.println("Diga porcentaje de ganancias");
+					aux = s.nextLine();
+					porcentaje = Double.parseDouble(aux);
+					
+					System.out.printf("El precio de venta es %.2f\n", t.calcularPrecioFinal(porcentaje, id));
+					
+					break;
 					
 				case 0:
 					

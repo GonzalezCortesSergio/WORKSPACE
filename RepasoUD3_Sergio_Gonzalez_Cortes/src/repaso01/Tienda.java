@@ -97,6 +97,16 @@ public class Tienda {
 	
 	}
 	
+	public void mostrarProductosInactivos () {
+		
+		for (int i = 0; i < numProductos; i++) {
+			
+			if (!listaProductos[i].isEnVenta()) {
+				System.out.println(listaProductos [i]);
+			}
+		}
+	}
+	
 	public void mostrarLista (Producto[] listaEncontrados) {
 		
 		for (int i = 0; i < listaEncontrados.length; i++) {
@@ -140,9 +150,42 @@ public class Tienda {
 	
 	public double calcularPrecioVentaPublico (double porcentaje, String id) {
 		
-		return buscarPorId(id).getPrecioFabrica()+(buscarPorId(id).getPrecioFabrica()*porcentaje);
+		return buscarPorId(id).getPrecioFabrica()+(buscarPorId(id).getPrecioFabrica()*porcentaje / 100);
 	}
 	
+	public void cambiarPrecioSeccion (int seccion, double precioNuevo) {
+		
+		for (int i = 0; i < numProductos; i++) {
+			
+			buscarBySeccion(seccion)[i].setPrecioFabrica(precioNuevo);
+		}
+	}
+	
+	public double hacerDescuento (double descuento, double ganancia, String id) {
+		
+		
+		return calcularPrecioVentaPublico (ganancia, id) - (calcularPrecioVentaPublico (ganancia, id)* descuento / 100);
+	}
+	
+	
+	//Devuelve el número de elementos "eliminados" de la lista
+	
+	public int eliminarSeccion (int seccion) {
+		
+		int eliminados = 0;
+		
+		for (int i = 0; i < numProductos; i++) {
+			
+			if (listaProductos[i].getSeccion() == seccion) {
+				
+				listaProductos[i].setEnVenta(false);
+				
+				eliminados++;
+			}
+		}
+		
+		return eliminados;
+	}
 	
 	
 	

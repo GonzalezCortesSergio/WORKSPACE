@@ -96,7 +96,7 @@ public class Tienda {
 	
 	public void mostrarNoEnVenta () {
 		
-		for (int i = 0; i < numProductos; i++) {
+		for (int i = 0; i < buscarNoEnVenta().length; i++) {
 			
 			if (buscarNoEnVenta()[i] != null) {
 				
@@ -104,6 +104,13 @@ public class Tienda {
 				System.out.println();
 			}
 		}
+	}
+	
+	public double calcularPrecioFinal (double ganancia, String id) {
+		
+		return encontrarPorId(id).getPrecioUnitario() + (encontrarPorId(id).getPrecioUnitario() * ganancia / 100);
+		
+		
 	}
 	
 	
