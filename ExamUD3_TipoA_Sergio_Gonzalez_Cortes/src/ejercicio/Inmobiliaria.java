@@ -139,4 +139,9 @@ public class Inmobiliaria {
 		return calcularPrecioFinal(ganancia, id) / buscarPorId(id).getMetrosCuadrados();
 	}
 	
+	public void cambiarPrecioVenta (double precio, String id) {
+		
+		buscarPorId(id).setPrecioVenta(precio);
+	}
+	
 }

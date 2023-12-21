@@ -49,6 +49,7 @@ public class Principal {
 					Opción 2:	Ver pisos nuevos
 					Opción 3:	Ver todos los pisos
 					Opción 4:	Calcular precio por metro cuadrado de un piso
+					Opción 5:	Cambiar precio de venta de un piso
 					Opción 0:	Salir
 					-----------------------------------------------------------------------
 					""");
@@ -113,6 +114,21 @@ public class Principal {
 					
 					break;
 					
+					
+				case 5:
+					
+					System.out.println("Diga el id del piso");
+					id = s.nextLine();
+					
+					System.out.println("Diga el nuevo precio");
+					aux = s.nextLine();
+					precioVenta = Double.parseDouble(aux);
+					
+					i.cambiarPrecioVenta(precioVenta, id);
+					
+					System.out.println("Se ha cambiado el precio correctamente");
+					
+					break;
 					
 				case 0:
 					
