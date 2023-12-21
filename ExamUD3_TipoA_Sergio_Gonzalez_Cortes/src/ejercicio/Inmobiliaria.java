@@ -78,9 +78,48 @@ public class Inmobiliaria {
 		return listaNuevos;
 	}
 	
-	public void mostrarPisosNuevos (Piso [] listaNuevos) {
+	public Piso buscarPorId (String id) {
+		
+		boolean encontrado = false;
+		int i = 0;
+		
+		while (i < numPisos && !encontrado) {
+			
+			Piso deLista = listaPisos[i];
+			
+			if (deLista.getId().equals(id)) {
+				
+				encontrado = true;
+			}
+			
+			else {
+				i++;
+			}
+		}
+		
+		if (encontrado) {
+			
+			return listaPisos[i];
+		}
+		
+		else {
+			
+			return null;
+		}
+	}
+	
+	public void mostrarPisos () {
 		
 		for (int i = 0; i < numPisos; i++) {
+			
+			System.out.println(listaPisos[i]);
+			System.out.println();
+		}
+	}
+	
+	public void mostrarPisosNuevos (Piso [] listaNuevos) {
+		
+		for (int i = 0; i < listaNuevos.length; i++) {
 			
 			if (listaNuevos[i] != null) {
 				
@@ -89,5 +128,15 @@ public class Inmobiliaria {
 		}
 	}
 	
+	public double calcularPrecioFinal (double ganancia, String id) {
+		
+		int cien = 100;
+		return buscarPorId(id).getPrecioVenta() + (buscarPorId(id).getPrecioVenta()*ganancia / cien) ;
+	}
+	
+	public double calcularPrecioMetroCuadrado (double ganancia, String id) {
+		
+		return calcularPrecioFinal(ganancia, id) / buscarPorId(id).getMetrosCuadrados();
+	}
 	
 }

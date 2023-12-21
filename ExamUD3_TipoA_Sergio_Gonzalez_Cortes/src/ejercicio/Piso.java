@@ -5,6 +5,7 @@ public class Piso {
 	//Atributos
 	
 	private String direccion;
+	private String id;
 	private int metrosCuadrados;
 	private int estado; //1. Nuevo, 2. Seminuevo, 3. A reformar
 	private double precioVenta;
@@ -12,9 +13,10 @@ public class Piso {
 	
 	//Constructor
 	
-	public Piso(String direccion, int metrosCuadrados, int estado, double precioVenta) {
+	public Piso(String direccion, String id, int metrosCuadrados, int estado, double precioVenta) {
 		
 		this.direccion = direccion;
+		this.id = id;
 		this.metrosCuadrados = metrosCuadrados;
 		this.estado = estado;
 		this.precioVenta = precioVenta;
@@ -31,6 +33,15 @@ public class Piso {
 
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
+	}
+	
+	public String getId() {
+		return id;
+	}
+
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 
@@ -69,7 +80,7 @@ public class Piso {
 	
 	@Override
 	public String toString() {
-		return "Piso [direccion=" + direccion + ", metrosCuadrados=" + metrosCuadrados + ", estado=" + estado
+		return "Piso [direccion=" + direccion + ", id=" + id + ", metrosCuadrados=" + metrosCuadrados + ", estado=" + estado
 				+ ", precioVenta=" + precioVenta + "]";
 	}
 	

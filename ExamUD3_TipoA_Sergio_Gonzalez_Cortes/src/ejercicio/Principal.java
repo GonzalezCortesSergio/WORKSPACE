@@ -10,9 +10,9 @@ public class Principal {
 		
 		//Variables
 		
-		String direccion, aux;
+		String direccion, id, aux;
 		int metrosCuadrados, estado, opc, tam = 100, numTrabajadores;
-		double precioVenta;
+		double precioVenta, ganancia;
 		
 		//Instanciar Scanner
 		
@@ -44,11 +44,13 @@ public class Principal {
 			
 			System.out.println("""
 					
-					---------------------------------------------
+					-----------------------------------------------------------------------
 					Opción 1:	Agregar piso
 					Opción 2:	Ver pisos nuevos
+					Opción 3:	Ver todos los pisos
+					Opción 4:	Calcular precio por metro cuadrado de un piso
 					Opción 0:	Salir
-					---------------------------------------------
+					-----------------------------------------------------------------------
 					""");
 			
 			aux = s.nextLine();
@@ -60,6 +62,9 @@ public class Principal {
 					
 					System.out.println("Diga la dirección");
 					direccion = s.nextLine();
+					
+					System.out.println("Diga el id del piso");
+					id = s.nextLine();
 					
 					System.out.println("Los metros cuadrados sin comas");
 					aux = s.nextLine();
@@ -78,13 +83,33 @@ public class Principal {
 					aux = s.nextLine();
 					precioVenta = Double.parseDouble(aux);
 					
-					i.agregar(new Piso (direccion, metrosCuadrados, estado, precioVenta));
+					i.agregar(new Piso (direccion, id, metrosCuadrados, estado, precioVenta));
 					
 					break;
 					
 				case 2:
 					
 					i.mostrarPisosNuevos(i.buscarPisosNuevos());
+					
+					break;
+					
+					
+				case 3:
+					
+					i.mostrarPisos();
+					
+					break;
+					
+				case 4:
+					
+					System.out.println("Diga el id del piso");
+					id = s.nextLine();
+					
+					System.out.println("Diga el porcentaje de ganancia");
+					aux = s.nextLine();
+					ganancia = Double.parseDouble(aux);
+					
+					System.out.printf("El precio por metro cuadrado es de %.2f€\n", i.calcularPrecioMetroCuadrado(ganancia, id));
 					
 					break;
 					
