@@ -78,7 +78,7 @@ public class Inmobiliaria {
 		return listaNuevos;
 	}
 	
-	public Piso buscarPorId (String id) {
+	public Piso buscarPorId (int id) {
 		
 		boolean encontrado = false;
 		int i = 0;
@@ -87,7 +87,7 @@ public class Inmobiliaria {
 			
 			Piso deLista = listaPisos[i];
 			
-			if (deLista.getId().equals(id)) {
+			if (deLista.getId() == id) {
 				
 				encontrado = true;
 			}
@@ -128,20 +128,53 @@ public class Inmobiliaria {
 		}
 	}
 	
-	public double calcularPrecioFinal (double ganancia, String id) {
+	public double calcularPrecioFinal (double ganancia, int id) {
 		
 		int cien = 100;
 		return buscarPorId(id).getPrecioVenta() + (buscarPorId(id).getPrecioVenta()*ganancia / cien) ;
 	}
 	
-	public double calcularPrecioMetroCuadrado (double ganancia, String id) {
+	public double calcularPrecioMetroCuadrado (double ganancia, int id) {
 		
 		return calcularPrecioFinal(ganancia, id) / buscarPorId(id).getMetrosCuadrados();
 	}
 	
-	public void cambiarPrecioVenta (double precio, String id) {
+	public void cambiarPrecioVenta (double precio, int id) {
 		
 		buscarPorId(id).setPrecioVenta(precio);
+	}
+	
+	public double sumaTotalPrecioSeminuevo (double ganancia) {
+		
+		double sumaPrecios = 0;
+		
+		for (int i = 0; i < numPisos; i++) {
+			
+			sumaPrecios+= listaPisos[i].getPrecioVenta() + (listaPisos[i].getPrecioVenta()*ganancia / 100);
+		}
+		
+		return sumaPrecios;
+	}
+	
+	public double calcularGananciaVendedores (double gananciaNuevo, double gananciaSeminuevo) {
+		
+		double sumaPrecios = 0;
+		
+		for (int i = 0; i < numPisos; i++) {
+			
+			if (listaPisos[i].getEstado() == 1) {
+				
+				sumaPrecios+= listaPisos[i].getPrecioVenta() + (listaPisos[i].getPrecioVenta()*gananciaNuevo / 100);
+			}
+			
+			if (listaPisos[i].getEstado() == 2) {
+				
+				sumaPrecios+= listaPisos[i].getPrecioVenta() + (listaPisos[i].getPrecioVenta()*gananciaSeminuevo / 100);
+
+			}
+		}
+		
+		return sumaPrecios / numTrabajadores;
 	}
 	
 }

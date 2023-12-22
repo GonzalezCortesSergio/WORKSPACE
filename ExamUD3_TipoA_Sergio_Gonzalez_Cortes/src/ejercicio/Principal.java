@@ -10,9 +10,9 @@ public class Principal {
 		
 		//Variables
 		
-		String direccion, id, aux;
-		int metrosCuadrados, estado, opc, tam = 100, numTrabajadores;
-		double precioVenta, ganancia;
+		String direccion, aux;
+		int metrosCuadrados, estado, opc, tam = 100, numTrabajadores, id = 1;
+		double precioVenta, gananciaSeminuevo, gananciaNuevo;
 		
 		//Instanciar Scanner
 		
@@ -29,6 +29,9 @@ public class Principal {
 		//Instanciar inmobiliaria
 		
 		Inmobiliaria i = new Inmobiliaria (listaPisos, 0, numTrabajadores);
+		
+		
+		// Inicio del programa
 		
 		System.out.println("###                                                                         ######                                             \r\n"
 				+ " #  #    # #    #  ####  #####  # #      #   ##   #####  #   ##    ####     #     #  ####  ##### #####  # #      #       ####  \r\n"
@@ -50,6 +53,8 @@ public class Principal {
 					Opción 3:	Ver todos los pisos
 					Opción 4:	Calcular precio por metro cuadrado de un piso
 					Opción 5:	Cambiar precio de venta de un piso
+					Opción 6:	Ver cuánto se ganaría con todos los pisos seminuevos
+					Opción 7:	Ver cuánto ganaría cada vendedor con todos los pisos
 					Opción 0:	Salir
 					-----------------------------------------------------------------------
 					""");
@@ -63,9 +68,6 @@ public class Principal {
 					
 					System.out.println("Diga la dirección");
 					direccion = s.nextLine();
-					
-					System.out.println("Diga el id del piso");
-					id = s.nextLine();
 					
 					System.out.println("Los metros cuadrados sin comas");
 					aux = s.nextLine();
@@ -85,6 +87,7 @@ public class Principal {
 					precioVenta = Double.parseDouble(aux);
 					
 					i.agregar(new Piso (direccion, id, metrosCuadrados, estado, precioVenta));
+					id++;
 					
 					break;
 					
@@ -104,13 +107,15 @@ public class Principal {
 				case 4:
 					
 					System.out.println("Diga el id del piso");
-					id = s.nextLine();
+					
+					aux = s.nextLine();
+					id = Integer.parseInt(aux);;
 					
 					System.out.println("Diga el porcentaje de ganancia");
 					aux = s.nextLine();
-					ganancia = Double.parseDouble(aux);
+					gananciaNuevo = Double.parseDouble(aux);
 					
-					System.out.printf("El precio por metro cuadrado es de %.2f€\n", i.calcularPrecioMetroCuadrado(ganancia, id));
+					System.out.printf("El precio por metro cuadrado es de %.2f€\n", i.calcularPrecioMetroCuadrado(gananciaNuevo, id));
 					
 					break;
 					
@@ -118,7 +123,8 @@ public class Principal {
 				case 5:
 					
 					System.out.println("Diga el id del piso");
-					id = s.nextLine();
+					aux = s.nextLine();
+					id = Integer.parseInt(aux);
 					
 					System.out.println("Diga el nuevo precio");
 					aux = s.nextLine();
@@ -127,6 +133,30 @@ public class Principal {
 					i.cambiarPrecioVenta(precioVenta, id);
 					
 					System.out.println("Se ha cambiado el precio correctamente");
+					
+					break;
+					
+				case 6:
+					
+					System.out.println("Introduzca el porcentaje de ganancia de los pisos seminuevos");
+					aux = s.nextLine();
+					gananciaSeminuevo = Double.parseDouble(aux);
+					
+					System.out.printf("Se ha ganado %.2f€ con los pisos seminuevos\n", i.sumaTotalPrecioSeminuevo(gananciaSeminuevo));
+					
+					break;
+					
+				case 7:
+					
+					System.out.println("Diga el porcentaje de ganancia de los seminuevos");
+					aux = s.nextLine();
+					gananciaSeminuevo = Double.parseDouble(aux);
+					
+					System.out.println("Diga el porcentaje de ganancia de los nuevos");
+					aux = s.nextLine();
+					gananciaNuevo = Double.parseDouble(aux);
+					
+					System.out.printf("Cada vendedor ganaría %.2f€\n", i.calcularGananciaVendedores(gananciaNuevo, gananciaSeminuevo) );
 					
 					break;
 					
