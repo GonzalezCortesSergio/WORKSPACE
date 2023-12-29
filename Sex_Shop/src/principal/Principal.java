@@ -78,12 +78,15 @@ public class Principal {
 		do {
 			
 			System.out.println("""
+					-------------------------------------------------------
 					Opción 1:	Añadir juguete
 					Opción 2:	Ver juguetes en venta
 					Opción 3:	Ver juguetes descatalogados
 					Opción 4:	Descatalogar juguetes
 					Opción 5:	Volver a poner en venta
 					Opción 0:	Salir
+					-------------------------------------------------------
+
 					""");
 			
 			aux = s.nextLine();
