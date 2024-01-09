@@ -52,8 +52,21 @@ public class Empleado extends Trabajador{
 				+"Empleado [sueldo=" + sueldo + ", impuestos=" + impuestos + "]";
 	}
 	
+	//Esto a sio un día shurrica
+	
 	public double calcularPaga() {
 		double cien = 100.0;
 		return sueldo - sueldo*impuestos / cien;
+	}
+	
+	//Esto otro día así que nos espabilamos colegon
+	
+	public double calcularPagaV2() {
+		
+		double cien = 100.0;
+		double total = 0.0;
+		total = sueldo - sueldo * impuestos / cien;
+		
+		return total + super.calcularPagaV2();
 	}
 }

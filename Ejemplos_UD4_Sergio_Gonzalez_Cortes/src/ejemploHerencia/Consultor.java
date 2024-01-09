@@ -39,12 +39,31 @@ public class Consultor extends Trabajador{
 	
 	@Override
 	public String toString() {
-		return "Consultor [horas=" + horas + ", tarifa=" + tarifa + "]";
+		return super.toString() + "Consultor [horas=" + horas + ", tarifa=" + tarifa + "]";
 	}
+	
+	//Esto saecho un dia 
 	
 	public double calcularPaga () {
 		
 		return tarifa * horas;
+	}
+	
+	//Esto saecho otro y es mierda de la buena así que flipalo
+	
+	public double calcularPagaV2() {
+		
+		return super.calcularPagaV2() + tarifa*horas;
+		/*Si el método de la clase madre tiene un parámetro; las clases hijas
+		 deberán tener los mismos parámetros aunque no los usen; ya que deben tener la misma firma.*/
+	}
+	
+	public void avisarExtras() {
+		
+		if (horas > 40) {
+			
+			System.out.println("Cushame shava' que ta pasao de lo permitío");
+		}
 	}
 
 	
