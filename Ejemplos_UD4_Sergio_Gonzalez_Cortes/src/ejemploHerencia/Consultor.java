@@ -51,9 +51,9 @@ public class Consultor extends Trabajador{
 	
 	//Esto saecho otro y es mierda de la buena así que flipalo
 	
-	public double calcularPagaV2() {
+	public double calcularPagaV2(double fijo) {
 		
-		return super.calcularPagaV2() + tarifa*horas;
+		return tarifa*horas;
 		/*Si el método de la clase madre tiene un parámetro; las clases hijas
 		 deberán tener los mismos parámetros aunque no los usen; ya que deben tener la misma firma.*/
 	}

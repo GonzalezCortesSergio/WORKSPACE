@@ -61,12 +61,12 @@ public class Empleado extends Trabajador{
 	
 	//Esto otro día así que nos espabilamos colegon
 	
-	public double calcularPagaV2() {
+	public double calcularPagaV2(double fijo) {
 		
 		double cien = 100.0;
 		double total = 0.0;
 		total = sueldo - sueldo * impuestos / cien;
 		
-		return total + super.calcularPagaV2();
+		return total + super.calcularPagaV2(fijo);
 	}
 }

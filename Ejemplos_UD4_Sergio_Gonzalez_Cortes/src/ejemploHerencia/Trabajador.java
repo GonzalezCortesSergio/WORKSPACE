@@ -63,9 +63,14 @@ public class Trabajador {
 	
 	//Esto sa ecsplicao otro día así que espabila o te comen xhaval
 	
-	public double calcularPagaV2() {
+	public double calcularPagaV2(double fijo) {
 		
-		double fijo = 1000;
+		
 		return fijo;
+	}
+	
+	public void darDeBaja () {
+		
+		puesto ="baja";
 	}
 }
