@@ -27,4 +27,11 @@ public class Carta extends Documento{
 	}
 	
 	//Métodos
+	
+	public void imprimirDocumento () {
+			
+			System.out.println("Nombre de la empresa: " + super.getNombreEmpresa() + 
+					"\nDirección: "+ super.getDireccion() +
+					"Fecha: " + fecha);
+	}
 }
