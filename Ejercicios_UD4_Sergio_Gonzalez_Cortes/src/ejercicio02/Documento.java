@@ -44,6 +44,11 @@ public class Documento {
 	}
 	
 	
+	//Métodos
 	
+	public void imprimirDocumento () {
+	
+		System.out.println("Nombre de la empresa: "+ nombreEmpresa + "\nDirección: "+ direccion);
+	}
 	
 }
