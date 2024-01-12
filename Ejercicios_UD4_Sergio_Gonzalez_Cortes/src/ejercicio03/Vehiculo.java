@@ -54,5 +54,5 @@ public abstract class Vehiculo {
 	
 	//Métodos
 
-	abstract double calcularImpuesto(double transporte, double fijo);
+	abstract public double calcularImpuesto(double transporte, double fijo);
 }
