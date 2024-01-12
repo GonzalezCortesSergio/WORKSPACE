@@ -1,7 +1,7 @@
 package ejercicio03;
 
 public class Furgoneta extends Vehiculo{
-
+	
 	
 	//Constructor
 	
@@ -11,9 +11,9 @@ public class Furgoneta extends Vehiculo{
 
 	//Métodos
 	
-	public double calcularImpuesto(double transporte) {
+	public double calcularImpuesto(double transporte, double fijo) {
 		
-		return transporte;
+		return fijo + (fijo * transporte /100);
 	}
 	
 }

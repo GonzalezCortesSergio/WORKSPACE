@@ -10,7 +10,7 @@ public class Principal {
 		//Variables
 		
 		int cilindrada, cv, categoria, opc;
-		double transporte;
+		double transporte, fijo = 0;
 		String aux;
 		
 		//Scanner 
@@ -54,9 +54,36 @@ public class Principal {
 				aux = s.nextLine();
 				categoria = Integer.parseInt(aux);
 				
+				switch (categoria) {
+				
+				case 1:	
+					
+					fijo = 0;
+					
+					break;
+					
+				case 2:
+					
+					fijo = 25;
+					
+					break;
+					
+				case 3:
+					
+					fijo = 50;
+					
+					break;
+					
+				case 4:
+					
+					fijo = 100;
+					
+					break;
+			}
+				
 				Motocicleta m = new Motocicleta (cilindrada,cv,categoria);
 				
-				System.out.println("Tendrás un impuesto de "+m.calcularImpuesto(0));
+				System.out.println("Tendrás un impuesto de "+m.calcularImpuesto(0, fijo));
 				
 				break;
 				
@@ -80,13 +107,40 @@ public class Principal {
 				aux = s.nextLine();
 				categoria = Integer.parseInt(aux);
 				
+				switch (categoria) {
+				
+				case 1:	
+					
+					fijo = 0;
+					
+					break;
+					
+				case 2:
+					
+					fijo = 25;
+					
+					break;
+					
+				case 3:
+					
+					fijo = 50;
+					
+					break;
+					
+				case 4:
+					
+					fijo = 100;
+					
+					break;
+			}
+				
 				System.out.println("Porcentaje por el transporte");
 				aux = s.nextLine();
 				transporte = Double.parseDouble(aux);
 				
 				Furgoneta f = new Furgoneta(cilindrada,cv,categoria);
 				
-				System.out.println("Tendrás un porcentaje de impuesto de "+ f.calcularImpuesto(transporte));
+				System.out.println("Tendrás un porcentaje de impuesto de "+ f.calcularImpuesto(transporte, fijo));
 				
 				break;
 				
@@ -107,12 +161,41 @@ public class Principal {
 					Opción 3:	Tipo B
 					Opción 4:	Tipo C
 						""");
+				
 				aux = s.nextLine();
 				categoria = Integer.parseInt(aux);
 				
+				
+				switch (categoria) {
+				
+					case 1:	
+						
+						fijo = 0;
+						
+						break;
+						
+					case 2:
+						
+						fijo = 25;
+						
+						break;
+						
+					case 3:
+						
+						fijo = 50;
+						
+						break;
+						
+					case 4:
+						
+						fijo = 100;
+						
+						break;
+				}
+				
 				Coche c = new Coche(cilindrada,cv,categoria);
 				
-				System.out.println("Tendrás un porcentaje de impuesto de "+ c.calcularImpuesto(0));
+				System.out.println("Tendrás un porcentaje de impuesto de "+ c.calcularImpuesto(0, fijo));
 				
 				break;
 		}

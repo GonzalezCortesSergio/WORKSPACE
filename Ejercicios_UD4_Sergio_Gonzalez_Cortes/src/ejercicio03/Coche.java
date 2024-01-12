@@ -10,8 +10,8 @@ public class Coche extends Vehiculo{
 	
 	//Métodos
 	
-	public double calcularImpuesto(double transporte) {
+	public double calcularImpuesto(double transporte, double fijo) {
 		
-		return super.getCilindrada() - (super.getCilindrada() * 25 / 100);
+		return fijo + (super.getCilindrada() - (super.getCilindrada() * 25 / 100));
 	}
 }
