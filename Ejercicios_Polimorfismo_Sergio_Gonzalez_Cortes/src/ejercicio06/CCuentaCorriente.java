@@ -5,5 +5,5 @@ public class CCuentaCorriente extends CCuenta{
 	
 	//Atributos
 	
-	
+	private double puntos;
 }

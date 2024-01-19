@@ -53,9 +53,13 @@ public class Venta {
 
 	public void mostrarVenta(int diaActual, int mesActual, int anioActual, double porcentajeAl, double porcentajeEl){
 		
+		double suma = 0;
 		for (int i = 0; i < numVentas; i++) {
 			
 			System.out.println(listaVentas[i].getP() + "\t" + "Cantidad: " +listaVentas[i].getCantidad() + "\t" + "Precio: " +listaVentas[i].realizarVenta(diaActual, mesActual, anioActual, porcentajeAl, porcentajeEl));
+			suma+= listaVentas[i].realizarVenta(diaActual, mesActual, anioActual, porcentajeAl, porcentajeEl);
 		}
+		
+		System.out.printf("SUB TOTAL:	%.2f€\n", suma);
 	}
 }
