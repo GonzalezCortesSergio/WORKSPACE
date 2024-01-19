@@ -6,4 +6,76 @@ public class CCuentaCorriente extends CCuenta{
 	//Atributos
 	
 	private double puntos;
+
+	
+	//Constructor
+	
+	public CCuentaCorriente(String nombre, double dineroCuenta, double puntos) {
+		super(nombre, dineroCuenta);
+		this.puntos = puntos;
+	}
+
+
+	//Getters and Setters
+	
+	public double getPuntos() {
+		return puntos;
+	}
+
+
+	public void setPuntos(double puntos) {
+		this.puntos = puntos;
+	}
+
+
+	//toString
+	
+	@Override
+	public String toString() {
+		return "CCuentaCorriente [puntos=" + puntos + "]";
+	}
+
+	
+	//Métodos
+	
+	@Override
+	public void sacarDinero(double cantidad, double puntosAdicionales) {
+		// TODO Auto-generated method stub
+		
+		if (super.getDineroCuenta() >= cantidad) {
+			
+			super.setDineroCuenta(super.getDineroCuenta() - cantidad);
+		
+			System.out.printf("Se ha sacado el dinero correctamente, ahora dispones "
+					+ "de %.2f€\n", super.getDineroCuenta());
+		}
+		else {
+			System.out.println("No puedes extraer más dinero del que dispones");
+		}
+		
+		setPuntos(puntos + puntosAdicionales);
+		
+		System.out.printf("Usted dispone actualmente de %.2f puntos\n", getPuntos());
+	}
+
+
+	@Override
+	public void meterDinero(double cantidad, double puntosAdicionales) {
+		// TODO Auto-generated method stub
+		super.setDineroCuenta(super.getDineroCuenta() + cantidad);
+		
+		System.out.printf("Se ha introducido el dinero correctamente, "
+				+ "ahora dispones de %.2f€\n", super.getDineroCuenta());
+		
+		setPuntos(puntos + puntosAdicionales);
+		
+		System.out.printf("Usted dispone de %.2f puntos\n", getPuntos());
+	}
+	
+	
+	
+	public void mantenimientoCuenta (double porcentaje) {
+		
+		super.setDineroCuenta(super.getDineroCuenta() - (super.getDineroCuenta() * porcentaje / 100));
+	}
 }

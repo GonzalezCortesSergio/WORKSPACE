@@ -40,7 +40,7 @@ public abstract class CCuenta {
 	
 	//Métodos
 	
-	public abstract double sacarDinero();
+	public abstract void sacarDinero(double cantidad, double puntosAdicionales);
 	
-	public abstract double meterDinero();
+	public abstract void meterDinero(double cantidad, double puntosAdicionales);
 }
