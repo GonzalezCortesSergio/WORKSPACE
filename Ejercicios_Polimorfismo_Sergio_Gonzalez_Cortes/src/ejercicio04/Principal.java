@@ -1,5 +1,6 @@
 package ejercicio04;
 
+
 import java.util.Scanner;
 
 public class Principal {
@@ -42,13 +43,15 @@ public class Principal {
 		
 		//Parte visible del programa
 		
-		System.out.println("Diga en qué día estamos");
+		System.out.println("Día actual");
 		aux = s.nextLine();
 		diaActual = Integer.parseInt(aux);
-		System.out.println("El mes");
+		
+		System.out.println("Mes actual");
 		aux = s.nextLine();
 		mesActual = Integer.parseInt(aux);
-		System.out.println("Y el año");
+		
+		System.out.println("Año actual");
 		aux = s.nextLine();
 		anioActual = Integer.parseInt(aux);
 		
