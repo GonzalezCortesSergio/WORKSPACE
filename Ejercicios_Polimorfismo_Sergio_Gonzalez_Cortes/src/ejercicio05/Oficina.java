@@ -41,16 +41,14 @@ public class Oficina {
 	
 	//Métodos
 	
-	public void mostrarEmpleados (int objetivoVentas) {
+	public void mostrarEmpleados (double objetivoVentas) {
 		
 		for (int i = 0; i < numEmpleados; i++) {
 			
 			System.out.println(listaEmpleados[i] + "Sueldo: " + calcularSueldoEmpleado(listaEmpleados[i]));
 			
-			if (listaEmpleados[i] instanceof Vendedor && ((Vendedor)listaEmpleados[i]).getCantidadVentas() >= objetivoVentas) {
-				
-				((Vendedor)listaEmpleados[i]).felicitarVenta();
-			}
+			if (listaEmpleados[i] instanceof Vendedor)
+				((Vendedor)listaEmpleados[i]).felicitarVenta(objetivoVentas);
 		}
 	}
 	

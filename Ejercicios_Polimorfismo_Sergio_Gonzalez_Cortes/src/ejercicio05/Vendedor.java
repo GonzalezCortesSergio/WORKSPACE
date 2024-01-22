@@ -4,12 +4,12 @@ public class Vendedor extends Empleado{
 
 	//Atributos
 	
-	private int cantidadVentas;
+	private double cantidadVentas;
 	private double incentivo;
 	
 	//Constructor
 	
-	public Vendedor(String nombre, String apellidos, double sueldoBase, int nEmpleado, int cantidadVentas,
+	public Vendedor(String nombre, String apellidos, double sueldoBase, int nEmpleado, double cantidadVentas,
 			double incentivo) {
 		super(nombre, apellidos, sueldoBase, nEmpleado);
 		this.cantidadVentas = cantidadVentas;
@@ -19,11 +19,11 @@ public class Vendedor extends Empleado{
 	
 	//Getters and Setters
 	
-	public int getCantidadVentas() {
+	public double getCantidadVentas() {
 		return cantidadVentas;
 	}
 
-	public void setCantidadVentas(int cantidadVentas) {
+	public void setCantidadVentas(double cantidadVentas) {
 		this.cantidadVentas = cantidadVentas;
 	}
 
@@ -46,11 +46,11 @@ public class Vendedor extends Empleado{
 	@Override
 	public double calcularSueldo() {
 		
-		return super.getSueldoBase() + ((super.getSueldoBase() * incentivo /100) * cantidadVentas);
+		return super.calcularSueldo() + ((cantidadVentas * incentivo /100) );
 	}
 	
-	public void felicitarVenta () {
-		
-		System.out.println("Felicidades; has cumplido con el objetivo de ventas");
+	public void felicitarVenta (double objetivo) {
+		if (cantidadVentas >= objetivo)
+			System.out.println("Felicidades; has cumplido con el objetivo de ventas");
 	}
 }

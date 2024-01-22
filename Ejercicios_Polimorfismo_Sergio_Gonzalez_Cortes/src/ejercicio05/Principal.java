@@ -10,8 +10,9 @@ public class Principal {
 		//Variables
 		
 		String aux;
-		int objetivoVenta;
+		double objetivoVenta;
 		double sueldoBase = 1200, incentivo = 15, impuestos = 5.23;
+		int tam = 10;
 		
 		//Scanner
 		
@@ -23,13 +24,13 @@ public class Principal {
 		
 		Empleado gerente = new Gerente ("Bartolomé", "Arnau Txuquispuma", sueldoBase, 2, impuestos);
 		
-		Empleado vendedor1 = new Vendedor ("Eustaquio", "García Castro", sueldoBase, 3, 5, incentivo);
+		Empleado vendedor1 = new Vendedor ("Eustaquio", "García Castro", sueldoBase, 3, 255, incentivo);
 		
-		Empleado vendedor2 = new Vendedor ("Filomeno", "Vaquero Luque", sueldoBase, 4, 2, incentivo);
+		Empleado vendedor2 = new Vendedor ("Filomeno", "Vaquero Luque", sueldoBase, 4, 100, incentivo);
 		
 		//Se crea un array de Empleado
 		
-		Empleado [] listaEmpleados = new Empleado[10];
+		Empleado [] listaEmpleados = new Empleado[tam];
 		
 		listaEmpleados[0] = e;
 		listaEmpleados[1] = gerente;
@@ -42,7 +43,7 @@ public class Principal {
 		
 		System.out.println("Diga objetivo de ventas");
 		aux = s.nextLine();
-		objetivoVenta = Integer.parseInt(aux);
+		objetivoVenta = Double.parseDouble(aux);
 		
 		o.mostrarEmpleados(objetivoVenta);
 	}
