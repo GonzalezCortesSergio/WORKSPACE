@@ -77,5 +77,13 @@ public class CCuentaCorriente extends CCuenta{
 	public void mantenimientoCuenta (double porcentaje) {
 		
 		super.setDineroCuenta(super.getDineroCuenta() - (super.getDineroCuenta() * porcentaje / 100));
+		
+		System.out.println("Por mantenimiento se han ha extraído un porcentaje de su dinero");
+		
+	}
+	
+	public void verDinero() {
+		
+		System.out.printf("%.2f\n", super.getDineroCuenta());
 	}
 }
