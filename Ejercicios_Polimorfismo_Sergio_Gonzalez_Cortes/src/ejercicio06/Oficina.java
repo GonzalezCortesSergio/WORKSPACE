@@ -46,6 +46,39 @@ public class Oficina {
 		return "Oficina [listaCuentas=" + Arrays.toString(listaCuentas) + ", numCuentas=" + numCuentas + "]";
 	}
 	
+	//Métodos
+	
+	public void operacionRetirarDinero(CCuenta c, double cantidad, double puntosAdicionales) {
+		
+		c.sacarDinero(cantidad, puntosAdicionales);
+	}
+	
+	public void operacionMeterDinero(CCuenta c, double cantidad, double puntosAdicionales) {
+		
+		c.meterDinero(cantidad, puntosAdicionales);
+	}
+	
+	public double calcularTotalDinero () {
+		
+		double suma = 0;
+		
+		
+		for (int i = 0; i < numCuentas; i++) {
+			
+			suma+= listaCuentas[i].getDineroCuenta();
+		}
+		
+		return suma;
+	}
+	
+	public void verCuentas () {
+		
+		for (int i = 0; i < numCuentas; i++) {
+			
+			System.out.println(listaCuentas[i]);
+		}
+	}
+	
 	
 	
 }

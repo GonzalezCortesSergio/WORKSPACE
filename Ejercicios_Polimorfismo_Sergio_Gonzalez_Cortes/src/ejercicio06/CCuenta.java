@@ -4,28 +4,28 @@ public abstract class CCuenta {
 
 	//Atributos
 	
-	private String nombre;
+	private String nombreUsuario;
 	private double dineroCuenta;
 	
 	
 	//Constructor
 	
-	public CCuenta(String nombre, double dineroCuenta) {
+	public CCuenta(String nombreUsuario, double dineroCuenta) {
 		super();
-		this.nombre = nombre;
+		this.nombreUsuario = nombreUsuario;
 		this.dineroCuenta = dineroCuenta;
 	}
 
 	
 	//Getters and Setters
 	
-	public String getNombre() {
-		return nombre;
+	public String getNombreUsuario() {
+		return nombreUsuario;
 	}
 
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setNombreUsuario(String nombreUsuario) {
+		this.nombreUsuario = nombreUsuario;
 	}
 
 
@@ -36,6 +36,11 @@ public abstract class CCuenta {
 
 	public void setDineroCuenta(double dineroCuenta) {
 		this.dineroCuenta = dineroCuenta;
+	}
+	
+	public String toString () {
+		
+		return "CCuenta [nombreUsuario= " + nombreUsuario + ", dineroCuenta= " + dineroCuenta + "]";
 	}
 	
 	//Métodos

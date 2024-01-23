@@ -32,7 +32,7 @@ public class CCuentaCorriente extends CCuenta{
 	
 	@Override
 	public String toString() {
-		return "CCuentaCorriente [puntos=" + puntos + "]";
+		return super.toString() + " CCuentaCorriente [puntos=" + puntos + "]";
 	}
 
 	
