@@ -42,12 +42,12 @@ public class CCuentaCorriente extends CCuenta{
 	public void sacarDinero(double cantidad, double puntosAdicionales) {
 		// TODO Auto-generated method stub
 		
-		if (super.getDineroCuenta() >= cantidad) {
+		if (getDineroCuenta() >= cantidad) {
 			
-			super.setDineroCuenta(super.getDineroCuenta() - cantidad);
+			setDineroCuenta(getDineroCuenta() - cantidad);
 		
 			System.out.printf("Se ha sacado el dinero correctamente, ahora dispones "
-					+ "de %.2f€\n", super.getDineroCuenta());
+					+ "de %.2f€\n", getDineroCuenta());
 		}
 		else {
 			System.out.println("No puedes extraer más dinero del que dispones");
@@ -62,10 +62,10 @@ public class CCuentaCorriente extends CCuenta{
 	@Override
 	public void meterDinero(double cantidad, double puntosAdicionales) {
 		// TODO Auto-generated method stub
-		super.setDineroCuenta(super.getDineroCuenta() + cantidad);
+		setDineroCuenta(getDineroCuenta() + cantidad);
 		
 		System.out.printf("Se ha introducido el dinero correctamente, "
-				+ "ahora dispones de %.2f€\n", super.getDineroCuenta());
+				+ "ahora dispones de %.2f€\n", getDineroCuenta());
 		
 		setPuntos(puntos + puntosAdicionales);
 		
@@ -76,7 +76,7 @@ public class CCuentaCorriente extends CCuenta{
 	
 	public void mantenimientoCuenta (double porcentaje) {
 		
-		super.setDineroCuenta(super.getDineroCuenta() - (super.getDineroCuenta() * porcentaje / 100));
+		setDineroCuenta(getDineroCuenta() - (getDineroCuenta() * porcentaje / 100));
 		
 		System.out.println("Por mantenimiento se han ha extraído un porcentaje de su dinero");
 		
@@ -84,6 +84,6 @@ public class CCuentaCorriente extends CCuenta{
 	
 	public void verDinero() {
 		
-		System.out.printf("%.2f\n", super.getDineroCuenta());
+		System.out.printf("%.2f\n", getDineroCuenta());
 	}
 }

@@ -17,12 +17,12 @@ public class CCuentaEmpresa extends CCuenta{
 	public void sacarDinero(double cantidad, double puntosAdicionales) {
 		// TODO Auto-generated method stub
 		double cobroAdicional = 1;
-		if (super.getDineroCuenta() >= cantidad) {
+		if (getDineroCuenta() >= cantidad) {
 			
-			super.setDineroCuenta(super.getDineroCuenta() - cantidad - cobroAdicional );
+			setDineroCuenta(getDineroCuenta() - cantidad - cobroAdicional );
 			
 			System.out.printf("Se ha extraído el dinero correctamente. "
-					+ "Ahora dispones de %.2f€\n", super.getDineroCuenta());
+					+ "Ahora dispones de %.2f€\n", getDineroCuenta());
 		}
 		
 		else {
@@ -35,10 +35,10 @@ public class CCuentaEmpresa extends CCuenta{
 	public void meterDinero(double cantidad, double puntosAdicionales) {
 		// TODO Auto-generated method stub
 		
-		super.setDineroCuenta(super.getDineroCuenta() + cantidad);
+		setDineroCuenta(getDineroCuenta() + cantidad);
 		
 		System.out.printf("Se ha introducido el dinero correctamente. "
-				+ "Ahora dispones de %.2f€\n", super.getDineroCuenta());
+				+ "Ahora dispones de %.2f€\n", getDineroCuenta());
 	}
 
 	

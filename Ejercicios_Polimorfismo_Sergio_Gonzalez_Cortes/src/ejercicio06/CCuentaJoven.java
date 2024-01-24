@@ -14,12 +14,12 @@ public class CCuentaJoven extends CCuenta{
 	public void sacarDinero(double cantidad, double puntosAdicionales) {
 		// TODO Auto-generated method stub
 		
-		if (super.getDineroCuenta() >= cantidad) {
+		if (getDineroCuenta() >= cantidad) {
 			
-			super.setDineroCuenta(super.getDineroCuenta() - cantidad);
+			setDineroCuenta(getDineroCuenta() - cantidad);
 			
 			System.out.printf("Se ha sacado el dinero correctamente. "
-					+ "Ahora dispones de %.2f€\n", super.getDineroCuenta());
+					+ "Ahora dispones de %.2f€\n", getDineroCuenta());
 		}
 		
 		else {
@@ -32,10 +32,10 @@ public class CCuentaJoven extends CCuenta{
 	public void meterDinero(double cantidad, double puntosAdicionales) {
 		// TODO Auto-generated method stub
 		double retribucion = 1;
-		super.setDineroCuenta(super.getDineroCuenta() + cantidad + retribucion);
+		setDineroCuenta(getDineroCuenta() + cantidad + retribucion);
 		
 		System.out.printf("Se ha introducido el dinero correctamente. "
-				+ "Ahora dispones de %.2f€\n", super.getDineroCuenta());
+				+ "Ahora dispones de %.2f€\n", getDineroCuenta());
 	}
 
 	
