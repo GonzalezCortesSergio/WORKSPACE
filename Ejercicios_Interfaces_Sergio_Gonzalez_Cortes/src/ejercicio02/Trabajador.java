@@ -5,13 +5,15 @@ public class Trabajador implements IImpuesto{
 	//Atributos
 	
 	private String nombre;
+	private double impuesto;
 
 	
 	//Constructor
 	
-	public Trabajador(String nombre) {
+	public Trabajador(String nombre, double impuesto) {
 		super();
 		this.nombre = nombre;
+		this.impuesto = impuesto;
 	}
 
 
@@ -25,13 +27,23 @@ public class Trabajador implements IImpuesto{
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
+	public double getImpuesto () {
+		
+		return impuesto;
+	}
+	
+	public void setImpuesto(double impuesto) {
+		
+		this.impuesto = impuesto;
+	}
 
 
 	//toString
 	
 	@Override
 	public String toString() {
-		return "Trabajador [nombre=" + nombre + "]";
+		return "Trabajador [nombre=" + nombre + ", impuesto=" + impuesto + "]";
 	}
 
 
@@ -45,7 +57,7 @@ public class Trabajador implements IImpuesto{
 	@Override
 	public double calculoIrpf(double sueldo) {
 		// TODO Auto-generated method stub
-		return sueldo;
+		return sueldo - (sueldo * impuesto / 100);
 	}
 	
 	
