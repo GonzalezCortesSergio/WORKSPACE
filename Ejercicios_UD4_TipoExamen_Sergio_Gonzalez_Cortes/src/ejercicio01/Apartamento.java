@@ -56,7 +56,7 @@ public class Apartamento extends Habitacion{
 	
 	@Override
 	public String toString() {
-		return "Apartamento [mCuadrados=" + mCuadrados + ", servicioLimpieza=" + servicioLimpieza
+		return super.toString() + " Apartamento [mCuadrados=" + mCuadrados + ", servicioLimpieza=" + servicioLimpieza
 				+ ", extraServicioLimpieza=" + extraServicioLimpieza + "]";
 	}
 	

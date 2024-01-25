@@ -38,11 +38,19 @@ public class Gestion {
 		}
 	}
 	
-	public void verHabitacionesNoOcupadas(Habitacion [] listaNoOcupadas) {
+	public void verHabitacionesLibres(Habitacion [] listaNoOcupadas) {
 		
 		for (int i = 0; i < listaNoOcupadas.length; i++) {
 			if (listaNoOcupadas[i] != null)
 				System.out.println(listaNoOcupadas[i]);
+		}
+	}
+	
+	public void verHabitacionesOcupadas(Habitacion [] listaOcupadas) {
+		
+		for (int i = 0; i < listaOcupadas.length; i++) {
+			if (listaOcupadas[i] != null)
+				System.out.println(listaOcupadas[i]);
 		}
 	}
 	
@@ -82,18 +90,33 @@ public class Gestion {
 		return listaNoOcupadas;
 	}
 	
+	public Habitacion [] buscarOcupadas () {
+		
+		Habitacion [] listaOcupadas = new Habitacion [listaHabitaciones.length];
+		
+		for (int i = 0; i < listaOcupadas.length; i++) {
+			if (listaHabitaciones[i] != null && listaHabitaciones[i].isOcupada()) {
+				
+				listaOcupadas[i] = listaHabitaciones[i];
+			}
+		}
+		
+		return listaOcupadas;
+	}
+	
 	public double calcularPrecioAPagar (Habitacion h, double descuento) {
 		
 		return h.calcularPrecioFinalHabitacion(descuento);
 	}
 	
-	public double calcularTotalRecaudado (double descuento) {
+	public double calcularTotalRecaudado (Habitacion [] listaOcupadas, double descuento) {
 		
 		double suma = 0;
 		
-		for (int i = 0; i < listaHabitaciones.length; i++) {
-			if (listaHabitaciones[i] != null)
-				suma+= listaHabitaciones[i].calcularPrecioFinalHabitacion(descuento);
+		for (int i = 0; i < listaOcupadas.length; i++) {
+			if (listaOcupadas[i] != null) {
+				suma+= calcularPrecioAPagar(listaOcupadas[i], descuento);
+			}
 		}
 		
 		return suma;
@@ -101,6 +124,12 @@ public class Gestion {
 	
 	public void mostrarFactura (Habitacion h, double descuento) {
 		
-		System.out.printf("%s\t\nTOTAL A PAGAR %.2f\n", h, h.calcularPrecioFinalHabitacion(descuento));
+		System.out.printf("%s\t\nTOTAL A PAGAR %.2f\n", h, calcularPrecioAPagar(h, descuento));
+	}
+	
+	public void venderHabitacion (Habitacion h) {
+		
+		h.setOcupada(true);
+		
 	}
 }
