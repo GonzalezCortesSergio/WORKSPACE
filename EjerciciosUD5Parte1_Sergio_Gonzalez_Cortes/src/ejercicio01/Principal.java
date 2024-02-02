@@ -60,7 +60,14 @@ public class Principal {
 					aux = s.nextLine();
 					opcElegirNota = Integer.parseInt(aux);
 					
-					System.out.println(listaNotas.get(opcElegirNota-1).getContenido()); 
+					
+					for (int i = 0; i < listaNotas.size(); i++) {
+						
+						if (listaNotas.get(i).getIdNota() == opcElegirNota)
+							Nota n = listaNotas.get(i);
+					}
+					
+					
 					
 					break;
 					

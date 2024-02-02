@@ -7,6 +7,9 @@ public class Nota {
 	
 	private String nombre;
 	private String contenido;
+	private int idNota;
+	
+	public static int contIdNota = 0;
 	
 	//Constructor
 	
@@ -14,6 +17,7 @@ public class Nota {
 		super();
 		this.nombre = nombre;
 		this.contenido = contenido;
+		this.idNota = contIdNota++;
 	}
 
 	
@@ -38,14 +42,23 @@ public class Nota {
 		
 		this.contenido = contenido;
 	}
+	
+	public int getIdNota () {
+		
+		return idNota;
+	}
+	
+
 
 
 	//toString
 	
 	@Override
 	public String toString() {
-		return "Nota [nombre=" + nombre +"]";
+		return "Nota [nombre=" + nombre + ", idNota=" + idNota +"]";
 	}
+	
+	
 	
 	
 	
