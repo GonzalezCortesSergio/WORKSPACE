@@ -26,6 +26,7 @@ public class Principal {
 		listaNotas.add(new Nota ("Algo que decir", "No te olvides de decirle a María que de un triple backflip con tirabuzón"));
 		listaNotas.add(new Nota ("Si", "Lleva la tarara un vestido con lentejuelas y lleno de cascabeles"));
 	
+		
 		do {
 			
 			System.out.println("""
@@ -60,14 +61,16 @@ public class Principal {
 					aux = s.nextLine();
 					opcElegirNota = Integer.parseInt(aux);
 					
-					
+					Nota n = null;
 					for (int i = 0; i < listaNotas.size(); i++) {
 						
-						if (listaNotas.get(i).getIdNota() == opcElegirNota)
-							Nota n = listaNotas.get(i);
+						if (listaNotas.get(i).getIdNota() == opcElegirNota) {
+							n = listaNotas.get(i);
+						}
+							
 					}
 					
-					
+					System.out.println(n.getContenido());			
 					
 					break;
 					

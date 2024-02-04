@@ -9,7 +9,7 @@ public class Nota {
 	private String contenido;
 	private int idNota;
 	
-	public static int contIdNota = 0;
+	public static int contIdNota = 1;
 	
 	//Constructor
 	
