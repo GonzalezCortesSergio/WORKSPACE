@@ -1,28 +1,28 @@
 package ejercicio02;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Club {
 
 	//Atributos
 	
-	private ArrayList<Socio> listaSocios;
+	private List<Socio> listaSocios;
 	
 	//Constructor
 	
-	public Club (ArrayList<Socio> listaSocios) {
+	public Club (List<Socio> listaSocios) {
 		
 		this.listaSocios = listaSocios;
 	}
 	
 	//Getters and Setters
 	
-	public ArrayList<Socio> getListaSocios () {
+	public List<Socio> getListaSocios () {
 		
 		return listaSocios;
 	}
 	
-	public void setListaSocios (ArrayList<Socio> listaSocios) {
+	public void setListaSocios (List<Socio> listaSocios) {
 		
 		this.listaSocios = listaSocios;
 	}
@@ -36,29 +36,43 @@ public class Club {
 			
 			System.out.println(socio);
 		}
-		
 	}
 	
-	public int buscarPorCodSocio (int codSocio) {
+	public void agregarSocio (Socio s) {
 		
-		int index = -1;
+		listaSocios.add(s);
+	}
+	
+	public Socio buscarPorDni (String dni) {
 		
-		for (int i = 0; i < listaSocios.size(); i++) {
+		boolean encontrado = false;
+		Socio s = null;
+		
+		for (int i = 0; i < listaSocios.size() && !encontrado ; i++) {
 			
-			if (listaSocios.get(i).getCodSocio() == codSocio) {
+			if (listaSocios.get(i).getDni().equals(dni)) {
 				
-				index = i;
+				s = listaSocios.get(i);
+				
+				encontrado = true;
 			}
-				
 		}
 		
-		return index;
+		return s;
+	}
+	
+	public void cambiarSocio (Socio s, String nombre, String apellidos, String nuevoDni) {
+		
+		s.setNombre(nombre);
+		s.setApellidos(apellidos);
+		s.setDni(nuevoDni);
 		
 	}
 	
-	
-	public void eliminarSocio (int codSocio) {
+	public void eliminarSocio (Socio s) {
 		
-		listaSocios.remove(buscarPorCodSocio(codSocio));
+		listaSocios.remove(s);
 	}
+	
+	
 }

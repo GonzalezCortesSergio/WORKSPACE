@@ -8,10 +8,7 @@ public class Socio {
 	private String nombre;
 	private String apellidos;
 	private String dni;
-	private int codSocio;
 	
-	
-	public static int contCodSocio = 1; //Atributo estático que permitirá que se introduzca el id solo
 
 	
 	//Constructor
@@ -21,7 +18,6 @@ public class Socio {
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.dni = dni;
-		this.codSocio = contCodSocio++;
 	}
 
 	
@@ -57,21 +53,13 @@ public class Socio {
 	}
 
 
-	public int getCodSocio() {
-		return codSocio;
-	}
-
-
-	public void setCodSocio(int codSocio) {
-		this.codSocio = codSocio;
-	}
 
 
 	//toString
 	
 	@Override
 	public String toString() {
-		return "Socio [nombre=" + nombre + ", apellidos=" + apellidos + ", dni=" + dni + ", codSocio=" + codSocio + "]";
+		return "Socio [nombre=" + nombre + ", apellidos=" + apellidos + ", dni=" + dni + "]";
 	}
 	
 	

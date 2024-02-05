@@ -44,6 +44,8 @@ public class Principal {
 					Opción 2:	Listar notas
 					Opción 3:	Ver nota
 					Opción 4:	Eliminar nota
+					Opción 5:	Cambiar nombre nota
+					Opcion 6:	Cambiar contenido nota
 					Opción 0:	Salir
 					------------------------------------
 					
@@ -93,6 +95,33 @@ public class Principal {
 					cn.eliminarNota(cn.buscarPorId(idNota));
 					
 					break;
+					
+				case 5:
+					
+					System.out.println("Diga el id de la nota que quiere cambiar");
+					aux = s.nextLine();
+					idNota = Integer.parseInt(aux);
+					
+					System.out.println("Diga el nuevo nombre de la nota");
+					titulo = s.nextLine();
+					
+					cn.cambiarNombreNota(cn.buscarPorId(idNota), titulo);
+					
+					break;
+					
+				case 6:
+					
+					System.out.println("Diga el id de la nota que quiere cambiar");
+					aux = s.nextLine();
+					idNota = Integer.parseInt(aux);
+					
+					System.out.println("Diga el nuevo contenido de la nota");
+					contenido = s.nextLine();
+					
+					cn.cambiarContenidoNota(cn.buscarPorId(idNota), contenido);
+					
+					break;
+					
 					
 				case 0:
 					
