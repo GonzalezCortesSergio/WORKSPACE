@@ -5,7 +5,7 @@ public class Nota {
 	
 	//Atributos
 	
-	private String nombre;
+	private String titulo;
 	private String contenido;
 	private int idNota;
 	
@@ -13,9 +13,9 @@ public class Nota {
 	
 	//Constructor
 	
-	public Nota(String nombre, String contenido) {
+	public Nota(String titulo, String contenido) {
 		super();
-		this.nombre = nombre;
+		this.titulo = titulo;
 		this.contenido = contenido;
 		this.idNota = contIdNota++;
 	}
@@ -23,12 +23,12 @@ public class Nota {
 	
 	//Getters and Setters
 	
-	public String getNombre() {
-		return nombre;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	
@@ -55,7 +55,7 @@ public class Nota {
 	
 	@Override
 	public String toString() {
-		return "Nota [nombre=" + nombre + ", idNota=" + idNota +"]";
+		return "Nota [titulo=" + titulo + ", idNota=" + idNota +"]";
 	}
 	
 	

@@ -1,4 +1,4 @@
-package ejemploList02;
+package ejemploList03;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,79 +8,70 @@ public class Principal {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		
 		//Variables
 		
-		String dni, nombre, aux;
-		int opc, edad, idPersona;
+		String nombre, dni, aux;
+		int edad, opc;
 		
 		Scanner s = new Scanner(System.in);
-		
+
 		List<Persona> listaPersonas = new ArrayList<Persona>();
+		listaPersonas.add(new Persona( "Miguel Ángel", 35, "41502122R"));
+		listaPersonas.add(new Persona( "Josito", 15, "51502121B"));
+		listaPersonas.add(new Persona ("Lamamarre", 42, "12011928L"));
+		
+		CRUDPersona cp = new CRUDPersona (listaPersonas);
+		
 		
 		do {
 			
-			System.out.println("-------------------------------------------");
+			System.out.println("""
+					
+					--------------------------------------------
+					Opción 1:	Mostrar listado
+					Opción 2:	Agregar persona
+					Opción 3:	Eliminar persona
+					Opción 0:	Salir
+					--------------------------------------------
+					
+					""");
 			
-			System.out.println("Opción 1:	Agregar persona");
-			System.out.println("Opción 2:	Ver personas");
-			System.out.println("Opción 3:	Eliminar persona");
-			System.out.println("Opción 0:	Salir");
-			
-			System.out.println("-------------------------------------------");
-
 			aux = s.nextLine();
-			
 			opc = Integer.parseInt(aux);
 			
-			switch(opc) {
+			switch (opc) {
 			
 				case 1:
 					
-					System.out.println("Nombre");
+					cp.imprimirLista();
+					
+					break;
+					
+				case 2:
+					
+					System.out.println("Nombre de la persona");
 					nombre = s.nextLine();
 					
 					System.out.println("Edad");
 					aux = s.nextLine();
 					edad = Integer.parseInt(aux);
 					
-					System.out.println("Dni");
+					System.out.println("DNI");
 					dni = s.nextLine();
 					
-					listaPersonas.add(new Persona (nombre, edad, dni));
-					
-					break;
-					
-				case 2:
-					
-					for (Persona persona : listaPersonas) {
-						
-						System.out.println(persona);
-					}
+					cp.agregarPersona(new Persona (nombre, edad, dni));
 					
 					break;
 					
 				case 3:
 					
-					System.out.println("Id de la persona que quiere eliminar");
-					aux = s.nextLine();
-					idPersona = Integer.parseInt(aux);
+					System.out.println("Diga el DNI de la persona que quiere eliminar");
+					dni = s.nextLine();
 					
-					
-					for (int i = 0; i < listaPersonas.size(); i++) {
-						
-						if (listaPersonas.get(i).getIdPersona() == idPersona) {
-							
-							listaPersonas.remove(i);
-						}
-					}
-					
-					System.out.println("Se ha eliminado correctamente");
+					cp.eliminarPersona(cp.buscarPorDni(dni));
 					
 					break;
-					
-					
-					
 					
 				case 0:
 					
@@ -101,10 +92,11 @@ public class Principal {
 			
 		}while (opc != 0);
 		
+		
 		System.out.println("--------------------------------");
 		System.out.println("Gracias por utilizar el programa");
 		System.out.println("--------------------------------");
-		
+
 		
 		
 	}

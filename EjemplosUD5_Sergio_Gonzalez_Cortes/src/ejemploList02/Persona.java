@@ -10,7 +10,7 @@ public class Persona {
 	private String dni;
 	private int idPersona;
 	
-	public static int contIdPersona = 0;
+	public static int contIdPersona = 1;
 	
 	
 	//Constructor
