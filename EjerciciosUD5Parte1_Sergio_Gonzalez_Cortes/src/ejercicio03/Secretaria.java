@@ -14,10 +14,12 @@ public class Secretaria {
 		Iterator<Alumno>it = setAlumnos.iterator();
 		double suma = 0;
 		int tamanio = 0;
-		
+		Alumno a = null;
 		while (it.hasNext()) {
 			
-			suma+=it.next().getNota();
+			a = it.next();
+			
+			suma+=a.getNota();
 			
 			tamanio++;
 		}
@@ -33,10 +35,12 @@ public class Secretaria {
 		Iterator<Alumno> it = setAlumnos.iterator();
 		
 		int numSuspensos = 0;
+		Alumno a = null;
 		
 		while (it.hasNext()) {
+			a = it.next();
 			
-			if (it.next().getNota() < 5) {
+			if (a.getNota() < 5) {
 				
 				numSuspensos++;
 			}
@@ -51,11 +55,15 @@ public class Secretaria {
 		
 		double sumaSuspensos = 0;
 		
-		while (it.hasNext()) {
+		Alumno a = null;
+		
+		while (it.hasNext() && it.next() != null) {
 			
-			if (it.next().getNota() < 5) {
+			a = it.next();
+			
+			if (a.getNota() < 5) {
 				
-				sumaSuspensos+=it.next().getNota();
+				sumaSuspensos+=a.getNota();
 			}
 		}
 		
