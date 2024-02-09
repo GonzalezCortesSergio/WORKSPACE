@@ -65,15 +65,23 @@ public class CRUDAlumno {
 		
 		while (it.hasNext() && !encontrado) {
 			
-			if (it.next().getCodAlumno().equals(codAlumno)) {
-				
-				a = it.next();
+			a= it.next();
+			
+			if (a.getCodAlumno().equals(codAlumno)) {
 				
 				encontrado = true;
 			}
 		}
 		
-		return a;
+		if (encontrado) {
+			
+			return a;
+		}
+		
+		else {
+			
+			return null;
+		}
 	}
 	
 	public Set<Alumno> buscarPorCurso (String curso) {
@@ -83,7 +91,7 @@ public class CRUDAlumno {
 		Set<Alumno> setAlumnosCurso = new HashSet<Alumno>();
 		
 		
-		while (it.hasNext()) {
+		while (it.hasNext() && it.next() != null) {
 			
 			if (it.next().getCurso().equalsIgnoreCase(curso)) {
 				
