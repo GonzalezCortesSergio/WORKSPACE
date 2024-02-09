@@ -90,12 +90,15 @@ public class CRUDAlumno {
 		
 		Set<Alumno> setAlumnosCurso = new HashSet<Alumno>();
 		
+		Alumno a = null;
 		
-		while (it.hasNext() && it.next() != null) {
+		while (it.hasNext()) {
 			
-			if (it.next().getCurso().equalsIgnoreCase(curso)) {
+			a = it.next();
+			
+			if (a.getCurso().equalsIgnoreCase(curso)) {
 				
-				setAlumnosCurso.add(it.next());
+				setAlumnosCurso.add(a);
 			
 			}
 		}
