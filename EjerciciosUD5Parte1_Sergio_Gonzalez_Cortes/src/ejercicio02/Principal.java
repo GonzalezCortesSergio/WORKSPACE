@@ -11,8 +11,10 @@ public class Principal {
 
 		//Variables
 		
-		String nombre, apellidos, dni, dniNuevo, aux;
-		int opc;
+		String nombre, apellidos, dni, aux;
+		int opc, opcVeterano;
+		boolean veterano;
+		double cuota = 60, descuentoVeterano = 30 , horas, precioHora = 5;
 		
 		//Instancia clase Scanner
 		
@@ -24,14 +26,18 @@ public class Principal {
 		
 		//Se introducen a cascoporro algunos socios para dar chicha al programa
 		
-		listaSocios.add(new Socio ("Manolito", "Pérez Galdiva", "58203657P"));
-		listaSocios.add(new Socio ("Luis Reinaldo", "Núñez Lapiedra", "13122402Q"));
-		listaSocios.add(new Socio ("Ermenegildo", "Pérez Cabrera", "41506774L"));
+		listaSocios.add(new Socio ("Manolito", "Pérez Galdiva", "58203657P", true));
+		listaSocios.add(new Socio ("Luis Reinaldo", "Núñez Lapiedra", "13122402Q", true));
+		listaSocios.add(new Socio ("Ermenegildo", "Pérez Cabrera", "41506774L", false));
 		
 		
-		//Se crea la clase Club introduciendo la lista de socios
+		//Se crea la clase CRUDSocio introduciendo la lista de socios
 		
-		Club c = new Club (listaSocios);
+		CRUDSocio cs = new CRUDSocio (listaSocios);
+		
+		//Se crea la clase Club introduciendo el CRUDSocio
+		
+		Club c = new Club (cs);
 		
 		
 		//Inicio del programa
@@ -45,6 +51,8 @@ public class Principal {
 					Opción 2:	Listar socios
 					Opción 3:	Cambiar datos de socio
 					Opción 4:	Eliminar socio
+					Opción 5:	Pagar cuota
+					Opción 6:	Alquilar pista
 					Opción 0:	Salir
 					-------------------------------------------------
 					
@@ -66,13 +74,30 @@ public class Principal {
 					System.out.println("DNI");
 					dni = s.nextLine();
 					
-					c.agregarSocio(new Socio (nombre, apellidos, dni));
+					System.out.println("¿Es veterano?");
+					
+					System.out.println("Opción 1:	Sí");
+					System.out.println("Opción 2:	No");
+					aux = s.nextLine();
+					opcVeterano = Integer.parseInt(aux);
+					
+					if (opcVeterano == 1) {
+						
+						veterano = true;
+					}
+					
+					else {
+						
+						veterano = false;
+					}
+					
+					cs.agregarSocio(new Socio (nombre, apellidos, dni, veterano));
 					
 					break;
 					
 				case 2:
 					
-					c.listarSocios();
+					cs.listarSocios();
 					
 					break;
 					
@@ -81,16 +106,33 @@ public class Principal {
 					System.out.println("DNI del socio que quiere cambiar");
 					dni = s.nextLine();
 					
-					System.out.println("Nombre nuevo");
+					System.out.println("Nombre");
 					nombre = s.nextLine();
 					
-					System.out.println("Apellidos nuevos");
+					System.out.println("Apellidos");
 					apellidos = s.nextLine();
 					
-					System.out.println("DNI nuevo");
-					dniNuevo = s.nextLine();
+					System.out.println("¿Es veterano?");
 					
-					c.cambiarSocio(c.buscarPorDni(dni), nombre, apellidos, dniNuevo);
+					System.out.println("""
+							Opción 1:	Sí
+							Opción 2:	No
+							""");
+					aux = s.nextLine();
+					opcVeterano = Integer.parseInt(aux);
+					
+					if (opcVeterano == 1) {
+						
+						veterano = true;
+					}
+					
+					else {
+						
+						veterano = false;
+					}
+				
+					
+					cs.cambiarSocio(cs.buscarPorDni(dni), nombre, apellidos, veterano);
 					
 					break;
 					
@@ -99,7 +141,30 @@ public class Principal {
 					System.out.println("DNI del socio que quiere eliminar");
 					dni = s.nextLine();
 					
-					c.eliminarSocio(c.buscarPorDni(dni));
+					cs.eliminarSocio(cs.buscarPorDni(dni));
+					
+					break;
+					
+				case 5:
+					
+					System.out.println("DNI del Socio");
+					dni = s.nextLine();
+					
+					System.out.printf("El socio %s %s deberá pagar %.2f€\n", cs.buscarPorDni(dni).getNombre(), cs.buscarPorDni(dni).getApellidos(), c.pagarCuota(dni, cuota, descuentoVeterano));
+					
+					break;
+					
+				case 6:
+					
+					System.out.println("DNI del socio");
+					dni = s.nextLine();
+					
+					System.out.println("Número de horas en la pista");
+					
+					aux = s.nextLine();
+					horas = Double.parseDouble(aux);
+					
+					System.out.printf("El socio %s %s tendrá que pagar %.2f€ por la pista\n", cs.buscarPorDni(dni).getNombre(), cs.buscarPorDni(dni).getApellidos(), c.alquilarPista(dni, horas, precioHora, descuentoVeterano));
 					
 					break;
 					

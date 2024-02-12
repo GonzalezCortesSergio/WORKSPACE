@@ -1,78 +1,64 @@
 package ejercicio02;
 
-import java.util.List;
+
 
 public class Club {
 
 	//Atributos
 	
-	private List<Socio> listaSocios;
+	private CRUDSocio cs;
+	
 	
 	//Constructor
 	
-	public Club (List<Socio> listaSocios) {
+	public Club (CRUDSocio cs) {
 		
-		this.listaSocios = listaSocios;
+		this.cs = cs;
 	}
+	
 	
 	//Getters and Setters
 	
-	public List<Socio> getListaSocios () {
+	public CRUDSocio getCs () {
 		
-		return listaSocios;
+		return cs;
 	}
 	
-	public void setListaSocios (List<Socio> listaSocios) {
+	public void setCs (CRUDSocio cs) {
 		
-		this.listaSocios = listaSocios;
+		this.cs = cs;
 	}
 	
 	
 	//Métodos
 	
-	public void listarSocios () {
+	public double pagarCuota (String dni, double cuota, double descuentoVeterano) {
 		
-		for (Socio socio : listaSocios) {
+		if (cs.buscarPorDni(dni).isVeterano()) {
 			
-			System.out.println(socio);
+			return cuota - (cuota * descuentoVeterano / 100);
+		}
+		
+		else {
+			
+			return cuota;
 		}
 	}
 	
-	public void agregarSocio (Socio s) {
+	public double alquilarPista (String dni, double horas, double precioHora, double descuentoVeterano) {
 		
-		listaSocios.add(s);
-	}
-	
-	public Socio buscarPorDni (String dni) {
+		double precioHoraCalculado = precioHora * horas;
 		
-		boolean encontrado = false;
-		Socio s = null;
-		
-		for (int i = 0; i < listaSocios.size() && !encontrado ; i++) {
+		if (cs.buscarPorDni(dni).isVeterano()) {
 			
-			if (listaSocios.get(i).getDni().equals(dni)) {
-				
-				s = listaSocios.get(i);
-				
-				encontrado = true;
-			}
+			return precioHoraCalculado - (precioHoraCalculado * descuentoVeterano / 100);
 		}
 		
-		return s;
-	}
-	
-	public void cambiarSocio (Socio s, String nombre, String apellidos, String nuevoDni) {
-		
-		s.setNombre(nombre);
-		s.setApellidos(apellidos);
-		s.setDni(nuevoDni);
+		else {
+			
+			return precioHoraCalculado;
+		}
 		
 	}
-	
-	public void eliminarSocio (Socio s) {
-		
-		listaSocios.remove(s);
-	}
-	
 	
 }
