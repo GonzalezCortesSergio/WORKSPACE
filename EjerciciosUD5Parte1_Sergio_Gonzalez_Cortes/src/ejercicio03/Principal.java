@@ -24,7 +24,7 @@ public class Principal {
 		
 		
 		Set<Alumno> setAlumnos = new HashSet<Alumno>();
-		setAlumnos.add(new Alumno ("Sergio", "González Cortés", 18, "1º DAM", "1121", 8.45));
+		setAlumnos.add(new Alumno ("Sergio", "González Cortés", 18, "1º DAM", "1121", 8.25));
 		setAlumnos.add(new Alumno ("Miguel", "Garfia Bermúdez", 21, "1º DAM", "1212", 5.75));
 		setAlumnos.add(new Alumno ("Sabrina", "Pérez Gálvez", 17, "2º Comercio", "2121", 4.53));
 		setAlumnos.add(new Alumno ("Adolfo", "Gómez Rastrojo", 25, "2º Comercio", "2212", 10));
