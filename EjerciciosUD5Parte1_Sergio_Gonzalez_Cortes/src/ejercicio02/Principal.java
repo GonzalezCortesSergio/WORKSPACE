@@ -49,7 +49,7 @@ public class Principal {
 					-------------------------------------------------
 					Opción 1:	Agregar socio
 					Opción 2:	Listar socios
-					Opción 3:	Cambiar datos de socio
+					Opción 3:	Modificar datos de socio
 					Opción 4:	Eliminar socio
 					Opción 5:	Pagar cuota
 					Opción 6:	Alquilar pista
@@ -103,7 +103,7 @@ public class Principal {
 					
 				case 3:
 					
-					System.out.println("DNI del socio que quiere cambiar");
+					System.out.println("DNI del socio que quiere modificar");
 					dni = s.nextLine();
 					
 					System.out.println("Nombre");
@@ -132,7 +132,7 @@ public class Principal {
 					}
 				
 					
-					cs.cambiarSocio(cs.buscarPorDni(dni), nombre, apellidos, veterano);
+					cs.modificarSocio(cs.buscarPorDni(dni), nombre, apellidos, veterano);
 					
 					break;
 					

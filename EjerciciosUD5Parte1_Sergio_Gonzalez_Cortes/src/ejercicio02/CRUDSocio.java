@@ -63,7 +63,7 @@ public class CRUDSocio {
 			return s;
 		}
 		
-		public void cambiarSocio (Socio s, String nombre, String apellidos, boolean veterano) {
+		public void modificarSocio (Socio s, String nombre, String apellidos, boolean veterano) {
 			
 			s.setNombre(nombre);
 			s.setApellidos(apellidos);
