@@ -7,5 +7,7 @@ public class CreadorProductoElectronica implements ICrearProducto{
 		// TODO Auto-generated method stub
 		return new Electronica (nombre, precioBase);
 	}
+	
+
 
 }
