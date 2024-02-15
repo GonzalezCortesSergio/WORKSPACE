@@ -1,6 +1,6 @@
 package ejercicio05;
 
-public class Persona {
+public class Persona implements Comparable<Persona>{
 
 	
 	//Atributos
@@ -46,6 +46,29 @@ public class Persona {
 	@Override
 	public String toString() {
 		return "Persona [nombre=" + nombre + ", edad=" + edad + "]";
+	}
+
+
+
+	@Override
+	public int compareTo(Persona o) {
+		// TODO Auto-generated method stub
+		
+		if (this.getNombre().charAt(0)< o.getNombre().charAt(0)) {
+			
+			return -1;
+		}
+		
+		else {
+			
+			if (this.getNombre().charAt(0) > o.getNombre().charAt(0)) {
+				
+				return 1;
+			}
+			
+			return 0;
+		}
+		
 	}
 	
 	
