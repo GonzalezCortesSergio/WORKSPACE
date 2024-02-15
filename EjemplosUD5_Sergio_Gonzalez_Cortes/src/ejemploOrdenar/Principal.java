@@ -47,6 +47,26 @@ public class Principal {
 					System.out.println();
 					System.out.println("\tGANADORES");
 					Collections.sort(listaCorredores, new ComparaPorMarca());
+					
+					for (Corredor corredor : listaCorredores) {
+						
+						System.out.println(corredor);
+					}
+					
+				case 2:
+					
+					System.out.println();
+					System.out.println("\tPERDEDORES");
+					Collections.reverseOrder(new ComparaPorMarca());
+					
+					Collections.sort(listaCorredores, Collections.reverseOrder(new ComparaPorMarca()));
+					
+					for (Corredor corredor : listaCorredores) {
+						System.out.println(corredor);
+					}
+					
+					break;
+					
 			}
 			
 		}while (opcionUser != 0);
