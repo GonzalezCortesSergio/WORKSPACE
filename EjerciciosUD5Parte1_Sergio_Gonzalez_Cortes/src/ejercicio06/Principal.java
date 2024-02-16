@@ -128,6 +128,8 @@ public class Principal {
 			
 		}while (opc != 0);
 		
+		
+		
 		System.out.println("--------------------------------");
 		System.out.println("Gracias por utilizar el programa");
 		System.out.println("--------------------------------");
