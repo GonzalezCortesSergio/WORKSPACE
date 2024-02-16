@@ -44,6 +44,7 @@ public class Principal {
 					Opción 2:	Ordenar inversamente alfabéticamente
 					Opción 3:	Ordenar por edad
 					Opción 4:	Ordenar inversamente por edad
+					Opción 5:	Mostrar desordenado
 					Opción 0:	Salir
 					------------------------------------------------------------------
 					
@@ -99,6 +100,20 @@ public class Principal {
 					}
 					
 					break;
+					
+				case 5:
+					
+					Collections.shuffle(listaPersonas);
+					
+					for (Persona persona : listaPersonas) {
+						
+						System.out.println(persona);
+					
+					}
+
+					
+					break;
+					
 					
 				case 0:
 					
