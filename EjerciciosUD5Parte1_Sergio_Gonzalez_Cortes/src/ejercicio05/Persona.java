@@ -54,20 +54,7 @@ public class Persona implements Comparable<Persona>{
 	public int compareTo(Persona o) {
 		// TODO Auto-generated method stub
 		
-		if (this.getNombre().charAt(0)< o.getNombre().charAt(0)) {
-			
-			return -1;
-		}
-		
-		else {
-			
-			if (this.getNombre().charAt(0) > o.getNombre().charAt(0)) {
-				
-				return 1;
-			}
-			
-			return 0;
-		}
+		return this.getNombre().toLowerCase().compareTo(o.getNombre().toLowerCase());
 		
 	}
 	

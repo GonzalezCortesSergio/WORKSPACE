@@ -28,6 +28,7 @@ public class Principal {
 		listaPersonas.add(new Persona ("Manolo", 80));
 		listaPersonas.add(new Persona ("Aarón", 18));
 		listaPersonas.add(new Persona ("Zalomon", 3));
+		listaPersonas.add(new Persona ("Aaltrumis", 100));
 		
 		for (Persona persona : listaPersonas) {
 			
