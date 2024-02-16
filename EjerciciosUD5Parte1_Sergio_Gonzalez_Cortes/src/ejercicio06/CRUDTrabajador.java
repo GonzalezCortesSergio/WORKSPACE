@@ -52,23 +52,23 @@ public class CRUDTrabajador {
 		return t;
 	}
 	
-	public void listarPorHorasCreciente () {
+	public void listarPorHorasCreciente (double sueldoHoras) {
 		
 		Collections.sort(listaTrabajadores);
 		
 		for (Trabajador trabajador : listaTrabajadores) {
 			
-			System.out.println(trabajador);
+			System.out.println(trabajador + "\tSueldo = " + trabajador.calcularSueldo(sueldoHoras));
 		}
 	}
 	
-	public void listarPorHorasDecreciente () {
+	public void listarPorHorasDecreciente (double sueldoHoras) {
 		
 		Collections.sort(listaTrabajadores, Collections.reverseOrder());
 		
 		for (Trabajador trabajador : listaTrabajadores) {
 			
-			System.out.println(trabajador);
+			System.out.println(trabajador + "\tSueldo = " + trabajador.calcularSueldo(sueldoHoras));
 		}
 	}
 	
@@ -78,7 +78,7 @@ public class CRUDTrabajador {
 		
 		for (Trabajador trabajador : listaTrabajadores) {
 			
-			System.out.println(trabajador);
+			System.out.println(trabajador + "\tSueldo = " + trabajador.calcularSueldo(sueldoHoras));
 		}
 	}
 	
@@ -88,7 +88,7 @@ public class CRUDTrabajador {
 		
 		for (Trabajador trabajador : listaTrabajadores) {
 			
-			System.out.println(trabajador);
+			System.out.println(trabajador + "\tSueldo = " + trabajador.calcularSueldo(sueldoHoras));
 		}
 	}
 	

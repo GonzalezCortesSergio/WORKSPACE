@@ -76,13 +76,13 @@ public class Principal {
 					
 				case 2:
 					
-					ct.listarPorHorasCreciente();
+					ct.listarPorHorasCreciente(sueldoHoras);
 					
 					break;
 					
 				case 3:
 					
-					ct.listarPorHorasDecreciente();
+					ct.listarPorHorasDecreciente(sueldoHoras);
 					
 					break;
 					
