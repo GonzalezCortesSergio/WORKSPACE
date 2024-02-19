@@ -11,7 +11,7 @@ public class App {
 		//Variables
 		
 		String nombre, aux;
-		int opc, opcTipo, opcCad;
+		int opc, opcTipo, opcCad, codProducto;
 		double precioBase, porcentajeAl = 20, porcentajeEl = 10;
 		boolean aPuntoCad = false;
 		
@@ -26,9 +26,14 @@ public class App {
 		do {
 			
 			System.out.println("""
+					
+					-------------------------------------------
 					Opción 1:	Agregar producto
 					Opción 2:	Ver productos
 					Opción 3:	Ver precio de venta
+					Opción 0:	Salir
+					-------------------------------------------
+					
 					""");
 			aux = s.nextLine();
 			
@@ -88,9 +93,41 @@ public class App {
 					t.verProductos();
 					
 					break;
+					
+				case 3:
+					
+					System.out.println("Código del producto que quiere ver");
+					aux = s.nextLine();
+					codProducto = Integer.parseInt(aux);
+					
+					System.out.println(t.buscarPorId(codProducto) + "\tPVP= " + t.calcularPVPProducto(t.buscarPorId(codProducto), porcentajeAl, porcentajeEl));
+					
+					break;
+					
+				case 0:
+					
+					System.out.println("***********");
+					System.out.println("Saliendo...");
+					System.out.println("***********");
+					
+					break;
+					
+				default:
+					
+					System.out.println("*****************");
+					System.out.println("Opción equivocada");
+					System.out.println("*****************");
+					
+					break;
+					
+					
 			}
 			
 		}while (opc != 0);
+		
+		System.out.println("--------------------------------");
+		System.out.println("Gracias por utilizar el programa");
+		System.out.println("--------------------------------");
 		
 	}
 }
