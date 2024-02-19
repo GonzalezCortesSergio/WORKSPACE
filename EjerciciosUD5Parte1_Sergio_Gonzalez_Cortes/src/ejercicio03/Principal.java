@@ -34,7 +34,7 @@ public class Principal {
 		//Creación de clase CRUDAlumnos y Secretaria
 		
 		CRUDAlumno ca = new CRUDAlumno (setAlumnos);
-		Secretaria s = new Secretaria ();
+		Secretaria s = new Secretaria (ca);
 		
 		
 		//Comienzo del programa
@@ -47,12 +47,11 @@ public class Principal {
 					--------------------------------------------------
 					Opción 1:	Agregar alumnos
 					Opción 2:	Ver alumnos
-					Opción 3:	Ver un alumno
-					Opción 4:	Cambiar datos alumno
-					Opción 5:	Eliminar alumno
-					Opción 6:	Ver media de curso
-					Opción 7:	Ver número de suspensos
-					Opción 8:	Ver media de suspensos
+					Opción 3:	Cambiar datos alumno
+					Opción 4:	Eliminar alumno
+					Opción 5:	Ver media de curso
+					Opción 6:	Ver número de suspensos
+					Opción 7:	Ver media de suspensos
 					Opción 0:	Salir
 					--------------------------------------------------
 					
@@ -94,16 +93,8 @@ public class Principal {
 					
 					break;
 					
+					
 				case 3:
-					
-					System.out.println("Código del alumno que quiere ver");
-					codAlumno = sc.nextLine();
-					
-					System.out.println(ca.buscarPorCodAlumno(codAlumno)); 
-					
-					break;
-					
-				case 4:
 					
 					System.out.println("Código del alumno que quiere cambiar");
 					codAlumno = sc.nextLine();
@@ -125,7 +116,7 @@ public class Principal {
 					
 					break;
 					
-				case 5:
+				case 4:
 					
 					System.out.println("Código del alumno que quiere eliminar");
 					codAlumno = sc.nextLine();
@@ -134,13 +125,22 @@ public class Principal {
 					
 					break;
 					
-				case 6: 
+				case 5: 
 					
 					System.out.println("Diga el curso que quiere ver");
 					curso = sc.nextLine();
 					
-					System.out.printf("La nota media del curso %s es de %.2f\n", curso, s.calcularMediaCurso(ca.buscarPorCurso(curso)));
+					System.out.printf("La nota media del curso %s es de %.2f\n", curso, s.calcularMediaCurso(curso));
 					
+					
+					break;
+					
+				case 6:
+					
+					System.out.println("Diga el curso que quiere ver");
+					curso = sc.nextLine();
+					
+					System.out.println("Hay un total de " + s.calcularNumSuspensos(curso) + " suspensos");
 					
 					break;
 					
@@ -149,16 +149,7 @@ public class Principal {
 					System.out.println("Diga el curso que quiere ver");
 					curso = sc.nextLine();
 					
-					System.out.println("Hay un total de " + s.calcularNumSuspensos(ca.buscarPorCurso(curso)) + " suspensos");
-					
-					break;
-					
-				case 8:
-					
-					System.out.println("Diga el curso que quiere ver");
-					curso = sc.nextLine();
-					
-					System.out.printf("La media de suspenso del curso %s es de %.2f\n", curso, s.calcularMediaSuspensos(ca.buscarPorCurso(curso)));
+					System.out.printf("La media de suspenso del curso %s es de %.2f\n", curso, s.calcularMediaSuspensos(curso));
 					
 					break;
 					

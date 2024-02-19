@@ -5,15 +5,20 @@ import java.util.Set;
 
 public class Secretaria {
 
-
+	private CRUDAlumno ca;
+	
+	public Secretaria (CRUDAlumno ca) {
+		
+		this.ca = ca;
+	}
 	
 	//Métodos
 	
-	public double calcularMediaCurso (Set<Alumno> setAlumnos) {
+	public double calcularMediaCurso (String curso) {
 		
-		Iterator<Alumno>it = setAlumnos.iterator();
+		Iterator<Alumno>it = ca.buscarPorCurso(curso).iterator();
 		double suma = 0;
-		int tamanio = 0;
+
 		Alumno a = null;
 		while (it.hasNext()) {
 			
@@ -21,18 +26,17 @@ public class Secretaria {
 			
 			suma+=a.getNota();
 			
-			tamanio++;
 		}
 		
-		return suma / tamanio;
+		return suma / ca.buscarPorCurso(curso).size();
 		
 		
 	
 	}
 	
-	public int calcularNumSuspensos (Set<Alumno> setAlumnos) {
+	public int calcularNumSuspensos (String curso) {
 		
-		Iterator<Alumno> it = setAlumnos.iterator();
+		Iterator<Alumno> it = ca.buscarPorCurso(curso).iterator();
 		
 		int numSuspensos = 0;
 		Alumno a = null;
@@ -49,9 +53,9 @@ public class Secretaria {
 		return numSuspensos;
 	}
 	
-	public double calcularMediaSuspensos (Set<Alumno> setAlumnos) {
+	public double calcularMediaSuspensos (String curso) {
 		
-		Iterator<Alumno> it = setAlumnos.iterator();
+		Iterator<Alumno> it = ca.buscarPorCurso(curso).iterator();
 		
 		double sumaSuspensos = 0;
 		
@@ -67,6 +71,6 @@ public class Secretaria {
 			}
 		}
 		
-		return sumaSuspensos / calcularNumSuspensos(setAlumnos);
+		return sumaSuspensos / ca.buscarPorCurso(curso).size();
 	}
 }

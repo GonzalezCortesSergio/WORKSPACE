@@ -49,11 +49,6 @@ public class CRUDAlumno {
 		}
 	}
 	
-	public void verAlumno (Alumno a) {
-		
-		System.out.println(a);
-		
-	}
 	
 	public Alumno buscarPorCodAlumno (String codAlumno) {
 		
@@ -67,7 +62,7 @@ public class CRUDAlumno {
 			
 			a= it.next();
 			
-			if (a.getCodAlumno().equals(codAlumno)) {
+			if (a.getCodAlumno().equalsIgnoreCase(codAlumno)) {
 				
 				encontrado = true;
 			}
@@ -82,6 +77,21 @@ public class CRUDAlumno {
 			
 			return null;
 		}
+	}
+	
+	public Alumno buscarPorCodAlumnoV2 (String codAlumno) {
+		
+		if (setAlumnos.size() != 0) {
+			
+			for (Alumno alumno : setAlumnos) {
+				if (alumno.getCodAlumno().equalsIgnoreCase(codAlumno)) {
+					
+					return alumno;
+				}
+			}
+		}
+		return null;
+		
 	}
 	
 	public Set<Alumno> buscarPorCurso (String curso) {
