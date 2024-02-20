@@ -65,7 +65,7 @@ public class Venta {
 			
 			System.out.printf("%s\tCantidad: %d\t\tPrecioCantidad: %.2f\n", entry, entry.getValue(), entry.getKey().calcularPVP(descuentoAl, impuestoEl, garantia) * entry.getValue());
 		}
-		System.out.printf("\t\t\tTOTAL: %.2f", calcularTotalVenta(descuentoAl, impuestoEl, garantia));
+		System.out.printf("\t\t\t\tTOTAL: %.2f\n", calcularTotalVenta(descuentoAl, impuestoEl, garantia));
 		System.out.println("--------------------------------------------------------------------------------------");
 	}
 	

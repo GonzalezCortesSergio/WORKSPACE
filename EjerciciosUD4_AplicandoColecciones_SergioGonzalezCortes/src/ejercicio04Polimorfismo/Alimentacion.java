@@ -28,6 +28,12 @@ public class Alimentacion extends Producto{
 	//Métodos
 	
 	@Override
+	public String toString() {
+		return super.toString() + " Alimentacion [aCaducar=" + aCaducar + "]";
+	}
+
+
+	@Override
 	public double calcularPVP(double descuentoAl, double impuestoEl, double garantia) {
 		// TODO Auto-generated method stub
 		

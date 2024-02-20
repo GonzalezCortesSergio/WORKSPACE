@@ -11,10 +11,10 @@ public class Principal {
 
 		//Variables
 		
-		double precioUnitario, descuentoAl = 30, impuestoEl = 10, garantia;
+		double precioUnitario, descuentoAl = 30, impuestoEl = 10, garantia = 50;
 		String nombre, aux;
-		int cantidad, opc, opcTipo;
-		boolean aCaducar, tieneGarantia;
+		int cantidad, opc, opcTipo, subOpc;
+		boolean aCaducar = false, tieneGarantia = false;
 		
 		//Scanner
 		
@@ -77,10 +77,92 @@ public class Principal {
 					if (opcTipo == 1) {
 						
 						System.out.println("¿Está a punto de caducar?");
+						System.out.println("""
+								Opción 1:	Sí
+								Opción 2:	No
+								""");
+						aux = s.nextLine();
+						subOpc = Integer.parseInt(aux);
+						if (subOpc == 1) {
+							
+							aCaducar = true;
+						}
+						else {
+							
+							aCaducar = false;
+						}
+						
 					}
+					
+					else if (opcTipo == 2) {
+						
+						System.out.println("¿Tiene garantía?");
+						
+						System.out.println("""
+								Opción 1:	Sí
+								Opción 2:	No
+								""");
+						aux = s.nextLine();
+						subOpc = Integer.parseInt(aux);
+						
+						if (subOpc == 1) {
+							
+							tieneGarantia = true;
+						}
+						
+						else{
+							
+							tieneGarantia = false;
+						}
+					}
+					
+					System.out.println("Cantidad");
+					aux = s.nextLine();
+					cantidad = Integer.parseInt(aux);
+					
+					
+					
+					if (opcTipo == 1) {
+						
+						v.agregarLineaVenta(ca.crearProducto(precioUnitario, nombre, aCaducar, tieneGarantia), cantidad);
+						
+					}
+					
+					if (opcTipo == 2) {
+						
+						v.agregarLineaVenta(ce.crearProducto(precioUnitario, nombre, aCaducar, tieneGarantia), cantidad);
+					}
+					
+					break;
+					
+				case 2:
+					
+					v.mostrarVenta(descuentoAl, impuestoEl, garantia);
+					
+					break;
+					
+				case 0:
+					
+					System.out.println("***********");
+					System.out.println("Saliendo...");
+					System.out.println("***********");
+					
+					break;
+					
+				default:
+					
+					System.out.println("*****************");
+					System.out.println("Opción equivocada");
+					System.out.println("*****************");
+					
+					break;
 			}
 			
 		}while (opc != 0);
+		
+		System.out.println("--------------------------------");
+		System.out.println("Gracias por utilizar el programa");
+		System.out.println("--------------------------------");
 	}
 
 }

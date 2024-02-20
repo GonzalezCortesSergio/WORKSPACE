@@ -31,7 +31,7 @@ public class Electronica extends Producto{
 	
 	@Override
 	public String toString() {
-		return "Electronica [tieneGarantia=" + tieneGarantia + "]";
+		return super.toString() + " Electronica [tieneGarantia=" + tieneGarantia + "]";
 	}
 
 
@@ -41,7 +41,7 @@ public class Electronica extends Producto{
 	public double calcularPVP(double descuentoAl, double impuestoEl, double garantia) {
 		// TODO Auto-generated method stub
 		
-		double pvp = getPrecioUnitario() + (getPrecioUnitario() * impuestoEl);
+		double pvp = getPrecioUnitario() + (getPrecioUnitario() * impuestoEl / 100);
 		
 		if (tieneGarantia) {
 			
