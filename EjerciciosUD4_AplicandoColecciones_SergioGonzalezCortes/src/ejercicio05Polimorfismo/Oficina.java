@@ -35,6 +35,18 @@ public class Oficina {
 		return e.calcularSueldo();
 	}
 	
+	public double calcularTotalSueldos () {
+		
+		double sumaSueldos = 0;
+		
+		for (int i = 0; i < ce.getListaEmpleados().size(); i++) {
+			
+			sumaSueldos+= calcularSueldoEmpleado(ce.getListaEmpleados().get(i));
+		}
+		
+		return sumaSueldos;
+	}
+	
 	
 	
 }
