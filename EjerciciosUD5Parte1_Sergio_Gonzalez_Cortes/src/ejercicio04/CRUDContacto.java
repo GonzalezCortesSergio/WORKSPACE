@@ -1,6 +1,8 @@
 package ejercicio04;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -61,13 +63,29 @@ public class CRUDContacto {
 			
 			entryContactos = it.next();
 			
-			if (entryContactos.getKey().getNombre().equals(nombre) && entryContactos.getKey().getApellidos().equals(apellidos)) {
+			if (entryContactos.getKey().getNombre().equalsIgnoreCase(nombre) && entryContactos.getKey().getApellidos().equalsIgnoreCase(apellidos)) {
 				
 				encontrado = true;
 			}
 		}
 		
 		return entryContactos;
+	}
+	
+	public List<Contacto> buscarPorNombreV2 (String nombre) {
+		
+		List<Contacto> listaContactos = new ArrayList<Contacto>();
+		
+		for (Contacto contacto : mapContactos.keySet()) {
+			
+			if (contacto.getNombre().equalsIgnoreCase(nombre)) {
+				
+				listaContactos.add(contacto);
+			}
+				
+		}
+		
+		return listaContactos;
 	}
 	
 	public void cambiarContacto (Entry<Contacto, String> entryContactos, String nombreNuevo, String apellidosNuevos) {
