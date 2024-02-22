@@ -51,10 +51,10 @@ public class Persona implements Comparable<Persona>{
 
 
 	@Override
-	public int compareTo(Persona o) {
+	public int compareTo(Persona p) {
 		// TODO Auto-generated method stub
 		
-		return this.getNombre().toLowerCase().compareTo(o.getNombre().toLowerCase());
+		return this.getNombre().toLowerCase().compareTo(p.getNombre().toLowerCase());
 		
 	}
 	
