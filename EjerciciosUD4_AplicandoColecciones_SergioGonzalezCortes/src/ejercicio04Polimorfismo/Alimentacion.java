@@ -51,6 +51,14 @@ public class Alimentacion extends Producto{
 		
 	}
 	
+	public void avisarCaducidad () {
+		
+		if (aCaducar) {
+			
+			System.out.println("Cushame, ten cuidao que ce va a caduca");
+		}
+	}
+	
 	
 	
 }

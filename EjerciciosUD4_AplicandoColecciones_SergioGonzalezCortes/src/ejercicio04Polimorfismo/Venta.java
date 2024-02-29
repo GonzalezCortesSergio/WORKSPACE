@@ -64,6 +64,11 @@ public class Venta {
 		for (Entry<Producto, Integer> entry : entrySet) {
 			
 			System.out.printf("%s\tCantidad: %d\t\tPrecioCantidad: %.2f\n", entry, entry.getValue(), entry.getKey().calcularPVP(descuentoAl, impuestoEl, garantia) * entry.getValue());
+			
+			if (entry.getKey() instanceof Alimentacion) {
+				
+				((Alimentacion)entry.getKey()).avisarCaducidad();
+			}
 		}
 		System.out.printf("\t\t\t\tTOTAL: %.2f\n", calcularTotalVenta(descuentoAl, impuestoEl, garantia));
 		System.out.println("--------------------------------------------------------------------------------------");
