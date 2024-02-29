@@ -29,6 +29,7 @@ public class Principal {
 		listaTrabajadores.add(new Trabajador ("Antonio", "4123554L", 12));
 		listaTrabajadores.add(new Trabajador ("Diego", "5012557P", 4));
 		listaTrabajadores.add(new Trabajador ("Lucas", "3276991K", 6));
+		listaTrabajadores.add(new Trabajador ("Sergio", "11223344L", 13));
 		
 		//Se instancia la clase CRUDTrabajador incluyendo la lista de trabajadores
 		
@@ -43,11 +44,8 @@ public class Principal {
 					
 					-----------------------------------------------------
 					Opción 1:	Agregar trabajador
-					Opción 2:	Listar por horas creciente
-					Opción 3:	Listar por horas decreciente
-					Opción 4:	Listar por sueldo creciente
-					Opción 5:	Listar por sueldo decreciente
-					Opción 6:	Borrar trabajador
+					Opción 2:	Listar por nombre y sueldo
+					Opción 3:	Borrar trabajador
 					Opción 0:	Salir
 					-----------------------------------------------------
 					
@@ -76,29 +74,12 @@ public class Principal {
 					
 				case 2:
 					
-					ct.listarPorHorasCreciente(sueldoHoras);
+					ct.listarPorNombreYHoras(sueldoHoras);
+					
 					
 					break;
 					
 				case 3:
-					
-					ct.listarPorHorasDecreciente(sueldoHoras);
-					
-					break;
-					
-				case 4:
-					
-					ct.listarPorSueldoCreciente(sueldoHoras);
-					
-					break;
-					
-				case 5:
-					
-					ct.listarPorSueldoDecreciente(sueldoHoras);
-					
-					break;
-					
-				case 6:
 					
 					System.out.println("DNI del trabajador que quiere borrar");
 					dni = s.nextLine();
@@ -106,6 +87,7 @@ public class Principal {
 					ct.borrarTrabajador(ct.buscarPorDNI(dni));
 					
 					break;
+					
 					
 				case 0:
 					

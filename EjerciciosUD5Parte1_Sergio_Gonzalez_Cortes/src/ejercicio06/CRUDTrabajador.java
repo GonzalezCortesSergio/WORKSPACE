@@ -38,21 +38,19 @@ public class CRUDTrabajador {
 	public Trabajador buscarPorDNI(String dni) {
 		
 		boolean encontrado = false;
-		Trabajador t = null;
 		
 		for (int i = 0; i < listaTrabajadores.size() && !encontrado; i++) {
 			
 			if (listaTrabajadores.get(i).getDni().equals(dni)) {
 				
-				t = listaTrabajadores.get(i);
-				encontrado = true;
+				return listaTrabajadores.get(i);
 			}
 		}
 		
-		return t;
+		return null;
 	}
 	
-	public void listarPorHorasCreciente (double sueldoHoras) {
+	public void listarPorNombreYHoras (double sueldoHoras) {
 		
 		Collections.sort(listaTrabajadores);
 		
@@ -61,36 +59,8 @@ public class CRUDTrabajador {
 			System.out.println(trabajador + "\tSueldo = " + trabajador.calcularSueldo(sueldoHoras));
 		}
 	}
+
 	
-	public void listarPorHorasDecreciente (double sueldoHoras) {
-		
-		Collections.sort(listaTrabajadores, Collections.reverseOrder());
-		
-		for (Trabajador trabajador : listaTrabajadores) {
-			
-			System.out.println(trabajador + "\tSueldo = " + trabajador.calcularSueldo(sueldoHoras));
-		}
-	}
-	
-	public void listarPorSueldoCreciente (double sueldoHoras) {
-		
-		Collections.sort(listaTrabajadores, new ComparadorSueldoTrabajador(sueldoHoras));
-		
-		for (Trabajador trabajador : listaTrabajadores) {
-			
-			System.out.println(trabajador + "\tSueldo = " + trabajador.calcularSueldo(sueldoHoras));
-		}
-	}
-	
-	public void listarPorSueldoDecreciente (double sueldoHoras) {
-		
-		Collections.sort(listaTrabajadores, Collections.reverseOrder(new ComparadorSueldoTrabajador(sueldoHoras)));
-		
-		for (Trabajador trabajador : listaTrabajadores) {
-			
-			System.out.println(trabajador + "\tSueldo = " + trabajador.calcularSueldo(sueldoHoras));
-		}
-	}
 	
 	public void borrarTrabajador (Trabajador t) {
 		

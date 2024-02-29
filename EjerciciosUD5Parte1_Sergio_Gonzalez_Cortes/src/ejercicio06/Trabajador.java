@@ -72,20 +72,12 @@ public class Trabajador implements Comparable<Trabajador>{
 	public int compareTo(Trabajador t) {
 		// TODO Auto-generated method stub
 		
-		if (this.horasTrabajadas < t.horasTrabajadas) {
+		if (this.getNombre().equalsIgnoreCase(t.getNombre())) {
 			
-			return -1;
+			return Double.compare(this.getHorasTrabajadas(), t.getHorasTrabajadas());
 		}
 		
-		else {
-			
-			if (this.horasTrabajadas > t.horasTrabajadas) {
-				
-				return 1;
-			}
-			
-			return 0;
-		}
+		return this.getNombre().compareToIgnoreCase(t.getNombre());
 	}
 	
 	
