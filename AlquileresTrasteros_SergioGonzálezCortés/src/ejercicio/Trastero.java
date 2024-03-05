@@ -72,8 +72,8 @@ public class Trastero implements Comparable<Trastero>{
 	
 	@Override
 	public String toString() {
-		return "Trastero [Capacidad=" + capacidad + ", Dirección=" + direccion + ", Número de Trastero=" + numTrastero
-				+ ", Precio=" + precio + ", Está ocupado=" + ocupado + "]";
+		return "Trastero [Capacidad= " + capacidad + ", Dirección= " + direccion + ", Número de Trastero= " + numTrastero
+				+ ", Precio= " + precio + ", Está ocupado= " + ocupado + "]";
 	}
 
 
