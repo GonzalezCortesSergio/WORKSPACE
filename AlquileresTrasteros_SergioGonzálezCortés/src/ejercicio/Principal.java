@@ -51,6 +51,7 @@ public class Principal {
 					Opción 6:	Modificar precio de un trastero
 					Opción 7:	Borrar trastero
 					Opción 8:	Ver trastero más caro
+					Opción 9:	Ver trasteros ocupados
 					Opción 0:	Salir
 					-------------------------------------------------------------
 					  
@@ -110,6 +111,8 @@ public class Principal {
 					numTrastero = Integer.parseInt(aux);
 					
 					o.buscarPorNumero(numTrastero).setOcupado(false);
+					
+					break;
 				
 					
 				case 6:
@@ -139,6 +142,12 @@ public class Principal {
 				case 8:
 					
 					System.out.println(o.buscarMasCaro());
+					
+					break;
+					
+				case 9:
+					
+					o.mostrarTrasterosOcupados();
 					
 					break;
 					

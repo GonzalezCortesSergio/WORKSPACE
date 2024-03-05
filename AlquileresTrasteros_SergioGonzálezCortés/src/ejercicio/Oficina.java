@@ -115,4 +115,15 @@ public class Oficina {
 			}
 		}
 	}
+	
+	public void mostrarTrasterosOcupados () {
+		
+		for (Trastero trastero : listaTrasteros) {
+			
+			if (trastero.isOcupado()) {
+				
+				System.out.println(trastero);
+			}
+		}
+	}
 }
