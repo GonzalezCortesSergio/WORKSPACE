@@ -2,6 +2,7 @@ package ejercicio04;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class Evento {
 
@@ -49,7 +50,15 @@ public class Evento {
 
 	//Métodos
 	
-	
+	public void formatearFecha (String patron) {
+		
+		DateTimeFormatter f = DateTimeFormatter.ofPattern(patron);
+		String text = fechaEvento.format(f);
+		
+		LocalDate fechaCambiada = LocalDate.parse(text, f);
+		
+		setFechaEvento (fechaCambiada);
+	}
 
 	//toString
 	
