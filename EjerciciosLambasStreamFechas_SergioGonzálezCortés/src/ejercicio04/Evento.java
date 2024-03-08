@@ -54,7 +54,6 @@ public class Evento {
 		
 		DateTimeFormatter f = DateTimeFormatter.ofPattern(patron);
 		String text = fechaEvento.format(f);
-		
 		LocalDate fechaCambiada = LocalDate.parse(text, f);
 		
 		setFechaEvento (fechaCambiada);
