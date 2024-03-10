@@ -50,20 +50,28 @@ public class Evento {
 
 	//Métodos
 	
-	public void formatearFecha (String patron) {
+	public String formatearFecha () {
+		
+		DateTimeFormatter f = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		
+		return fechaEvento.format(f);
+		
+	}
+	
+	public void formatearHora (String patron) {
 		
 		DateTimeFormatter f = DateTimeFormatter.ofPattern(patron);
-		String text = fechaEvento.format(f);
-		LocalDate fechaCambiada = LocalDate.parse(text, f);
+		String text = horaEvento.format(f);
+		LocalTime horaCambiada = LocalTime.parse(text, f);
 		
-		setFechaEvento (fechaCambiada);
+		setHoraEvento (horaCambiada);
 	}
 
 	//toString
 	
 	@Override
 	public String toString() {
-		return "Evento [Nombre del evento= " + nombre + ", Fecha del evento= " + fechaEvento + ", Hora del evento= " + horaEvento + "]";
+		return "Evento [Nombre del evento= " + nombre + ", Fecha del evento= "  + formatearFecha() +", Hora del evento= " + horaEvento + "]";
 	}
 	
 	

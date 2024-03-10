@@ -1,5 +1,6 @@
 package ejercicio04;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class GestionEventos {
@@ -62,5 +63,17 @@ public class GestionEventos {
 			
 			System.out.println(evento);
 		}
+	}
+	
+	public void aplazarEvento (LocalDate fechaCambiada, Evento e) {
+		
+		e.setFechaEvento(fechaCambiada); 
+		
+	}
+	
+	public int diasRestantes (Evento e) {
+		
+		return e.getFechaEvento().getDayOfYear() - LocalDate.now().getDayOfYear();
+		
 	}
 }
