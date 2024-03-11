@@ -78,13 +78,14 @@ public class Principal {
 					
 				case 2:
 					
-					System.out.println("Nombre y palo de la carta que quiere borrar");
-					nombre = s.nextLine();
+					System.out.println("Número y palo de la carta que quiere borrar");
+					aux = s.nextLine();
+					numCarta = Integer.parseInt(aux);
 					palo = s.nextLine();
 					
-					if (m.buscarPorNombreYPalo(nombre, palo) != null) {
+					if (m.buscarPorNumeroYPalo(numCarta, palo) != null) {
 						
-						m.borrarCarta(m.buscarPorNombreYPalo(nombre, palo));
+						m.borrarCarta(m.buscarPorNumeroYPalo(numCarta, palo));
 					}
 					
 					else {
@@ -113,15 +114,17 @@ public class Principal {
 				case 5:
 					
 					System.out.println("Nombre y palo de la carta que quiere modificar");
-					nombre = s.nextLine();
+					aux = s.nextLine();
+					numCarta = Integer.parseInt(aux);
 					palo = s.nextLine();
 					
 					System.out.println("Nombre nuevo de la carta");
 					nombreNuevo = s.nextLine();
 					
-					if (m.buscarPorNombreYPalo(nombre, palo) != null) {
+					if (m.buscarPorNumeroYPalo(numCarta, palo) != null) {
 						
-						m.buscarPorNombreYPalo(nombre, palo).setNombre(nombreNuevo);
+						m.modificarNombreCarta(m.buscarPorNumeroYPalo(numCarta, palo), nombreNuevo);
+						
 						
 					}
 					

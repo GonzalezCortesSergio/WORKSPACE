@@ -98,7 +98,7 @@ public class Carta implements Comparable<Carta>{
 	@Override
 	public int compareTo(Carta c) {
 		// TODO Auto-generated method stub
-		return this.getPalo().compareToIgnoreCase(c.getPalo());
+		return this.palo.compareToIgnoreCase(c.getPalo());
 	}
 	
 	

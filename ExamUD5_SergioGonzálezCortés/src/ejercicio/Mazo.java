@@ -45,11 +45,11 @@ public class Mazo {
 		listaCartas.remove(c);
 	}
 	
-	public Carta buscarPorNombreYPalo (String nombre, String palo) {
+	public Carta buscarPorNumeroYPalo (int numero, String palo) {
 		
 		for (Carta carta : listaCartas) {
 			
-			if (carta.getNombre().equalsIgnoreCase(nombre) && carta.getPalo().equalsIgnoreCase(palo)) {
+			if (carta.getNumCarta() == numero && carta.getPalo().equalsIgnoreCase(palo)) {
 				
 				return carta;
 			}
@@ -78,9 +78,9 @@ public class Mazo {
 		return cartasValorCero;
 	}
 	
-	public double calcularPuntuacionTotal () {
+	public int calcularPuntuacionTotal () {
 		
-		double puntuacionTotal = 0;
+		int puntuacionTotal = 0;
 		
 		for (Carta carta : listaCartas) {
 			
