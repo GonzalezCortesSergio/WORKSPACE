@@ -1,7 +1,10 @@
 package ejemploLambda;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 public class Principal {
@@ -14,6 +17,7 @@ public class Principal {
 		String mensaje = "Hello world";
 		
 		double [] listaDoubles = new double [5];
+		List<Double> listaDoubles2 = new ArrayList<Double>();
 		
 		
 		//Cuando sólo hay una variable no es necesario el paréntesis
@@ -36,6 +40,12 @@ public class Principal {
 			listaDoubles[i] = kmR.get();
 		}
 		
+		listaDoubles2.add(kmR.get());
+		listaDoubles2.add(kmR.get());
+		listaDoubles2.add(kmR.get());
+		listaDoubles2.add(kmR.get());
+		listaDoubles2.add(kmR.get());
+
 		for (double d : listaDoubles) {
 			System.out.println(d);
 		}
@@ -54,6 +64,7 @@ public class Principal {
 		
 		
 		//Definido con la interfaz Function 
+		//Funciona pasando un parámetro del tipo indicado, y devolviendo un valor de tipo indicado
 		
 		Function <Double, Double> aumentar = (m) -> m * 1000;
 		Function <Double, Double> aumentarMas = (cm) -> cm * 100;
@@ -68,6 +79,25 @@ public class Principal {
 			System.out.println(aumentar.andThen(aumentarMas).apply(d));
 			
 		}
+		
+		
+		//Definido con la interfaz BiFunction
+		//El objetivo de la intefaz BiFunction puede recibir dos objetos, devolviendo uno
+		
+		
+		
+		//Definido con la intefaz Predicate
+		//Devuleve un booleano
+		
+		Predicate <Integer> mayor = (x) -> x >= 5;
+		
+		
+		//Operador :: para referencia de métodos
+		
+		Consumer <List<Double>> mostrar = (List<Double> listaDouvle) -> listaDouvle.forEach(System.out::println);
+		System.out.println();
+		mostrar.accept(listaDoubles2);
+		
 		
 		
 	}
