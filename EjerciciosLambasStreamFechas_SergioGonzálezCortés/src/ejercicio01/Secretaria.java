@@ -66,6 +66,17 @@ public class Secretaria {
 				.toList();
 	}
 	
+	public Alumno buscarPorNombreApellidoCurso (String nombre, String apellidos, String curso) {
+		
+		return listaAlumnos.stream()
+				.filter(alumno -> alumno.getNombre().equalsIgnoreCase(nombre))
+				.filter(alumno -> alumno.getApellidos().equalsIgnoreCase(apellidos))
+				.filter(alumno -> alumno.getNombreCurso().equalsIgnoreCase(curso))
+				.findAny()
+				.get();
+		
+	}
+	
 	public List<Alumno> buscarPorNotaMediaDAM () {
 		
 		return listaAlumnos.stream()
@@ -81,21 +92,26 @@ public class Secretaria {
 				.count();
 	}
 	
-	public List<Alumno> buscarNumAlumnos (int limite) {
+	public List<Alumno> buscarNumAlumnos (int limite, List<Alumno> listaPasada) {
 		
-		return listaAlumnos.stream()
+		return listaPasada.stream()
 				.limit(limite)
 				.toList();
 	}
 	
-	public Alumno buscarAlumnoMenorEdad () {
+	public List<Alumno> buscarAlumnoMenorEdad () {
 		
 		Comparator<Alumno> comparaEdad = Comparator.comparing(Alumno::getEdad);
 		
+		int edadMenor = listaAlumnos.stream()
+						.sorted(comparaEdad)
+						.findFirst()
+						.get()
+						.getEdad();
+		
 		return listaAlumnos.stream()
-				.sorted(comparaEdad)
-				.findFirst()
-				.get();
+				.filter(alumno -> alumno.getEdad() == edadMenor)
+				.toList();
 	}
 	
 	public Alumno buscarPrimerAlumno () {
