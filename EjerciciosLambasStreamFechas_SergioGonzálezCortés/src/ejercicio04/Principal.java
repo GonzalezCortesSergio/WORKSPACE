@@ -107,6 +107,21 @@ public class Principal {
 					break;
 					
 					
+				case 0:
+					
+					System.out.println("***********");
+					System.out.println("Saliendo...");
+					System.out.println("***********");
+					
+					break;
+					
+				default:
+					
+					System.out.println("*****************");
+					System.out.println("Opción equivocada");
+					System.out.println("*****************");
+					
+					break;
 					
 				
 					
@@ -114,6 +129,11 @@ public class Principal {
 			}
 			
 		}while (opc != 0);
+		
+		System.out.println();
+		System.out.println("--------------------------------");
+		System.out.println("Gracias por utilizar el programa");
+		System.out.println("--------------------------------");
 	
 	}
 
