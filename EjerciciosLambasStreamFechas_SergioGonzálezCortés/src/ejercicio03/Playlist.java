@@ -1,5 +1,6 @@
 package ejercicio03;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -124,13 +125,11 @@ public class Playlist {
 		
 		List<Cancion> listaCancionesAleatoria = new ArrayList<Cancion>();
 		
-		double redondeo = 0;
 		
-		while (redondeo != duracion) {
+		while ((Math.round(getDuracionLista(listaCancionesAleatoria) * 100) / 100.00)  != duracion) {
 			
 			listaCancionesAleatoria.add(getCancionAleatoria());
 			
-			redondeo = Math.round(getDuracionLista(listaCancionesAleatoria)*100) / 100;
 			
 		}
 		
