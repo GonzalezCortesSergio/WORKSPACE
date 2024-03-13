@@ -24,17 +24,17 @@ public class Principal {
 		
 		List<Cancion> listaCanciones = new ArrayList<Cancion>();
 		
-		listaCanciones.add(new Cancion ("Drown", "Bring Me The Horizon", 3.43, "Post Hardcore"));
-		listaCanciones.add(new Cancion ("Die For You", "The Weeknd", 4.16, "Pop"));
-		listaCanciones.add(new Cancion ("No", "Subhumans", 1.38, "Punk"));
-		listaCanciones.add(new Cancion ("Doomed", "Bring Me The Horizon", 4.35, "Post Hardcore"));
-		listaCanciones.add(new Cancion ("DiE4u", "Bring Me The Horizon", 3.29, "Post Hardcore"));
-		listaCanciones.add(new Cancion ("La traviata - Brindisi", "Luciano Pavarotti", 5.03, "Música clásica"));
-		listaCanciones.add(new Cancion ("Dale comba", "Canelita", 4.34, "Framenkito"));
-		listaCanciones.add(new Cancion ("A quien le voy a contar mis penas", "Canelita", 3.23, "Framenkito"));
-		listaCanciones.add(new Cancion ("Death Breath", "Bring Me The Horizon", 4.23, "Hardcore Punk"));
-		listaCanciones.add(new Cancion ("If I'm James Dean You're Audrey Hepburn", "Sleeping With Sirens", 3.40, "Post Hardcore"));
-		listaCanciones.add(new Cancion ("ICARUS", "Tonny Ann", 3.20, "Música clásica"));
+		listaCanciones.add(new Cancion ("Drown", "Bring Me The Horizon", 3.4, "Post Hardcore"));
+		listaCanciones.add(new Cancion ("Die For You", "The Weeknd", 3.4, "Pop"));
+		listaCanciones.add(new Cancion ("No", "Subhumans", 3.4, "Punk"));
+		listaCanciones.add(new Cancion ("Doomed", "Bring Me The Horizon", 3.4, "Post Hardcore"));
+		listaCanciones.add(new Cancion ("DiE4u", "Bring Me The Horizon", 3.4, "Post Hardcore"));
+		listaCanciones.add(new Cancion ("La traviata - Brindisi", "Luciano Pavarotti", 3.4, "Música clásica"));
+		listaCanciones.add(new Cancion ("Dale comba", "Canelita", 3.4, "Framenkito"));
+		listaCanciones.add(new Cancion ("A quien le voy a contar mis penas", "Canelita", 3.4, "Framenkito"));
+		listaCanciones.add(new Cancion ("Death Breath", "Bring Me The Horizon", 3.4, "Hardcore Punk"));
+		listaCanciones.add(new Cancion ("If I'm James Dean You're Audrey Hepburn", "Sleeping With Sirens", 3.4, "Post Hardcore"));
+		listaCanciones.add(new Cancion ("ICARUS", "Tonny Ann", 3.4, "Música clásica"));
 		
 		
 		//Instancia de Playlist agregando la lista de canciones
@@ -161,6 +161,7 @@ public class Principal {
 					aux = s.nextLine();
 					duracion = Double.parseDouble(aux);
 					p.mostrarPorParametros(p.hacerPlaylistDuracion(duracion));
+					
 					
 					break;
 					

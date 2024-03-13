@@ -115,24 +115,24 @@ public class Playlist {
 	
 	public double getDuracionLista(List<Cancion> listaDada) {
 		
-		double duracion = 0;
-		
-		for (Cancion cancion : listaDada) {
-			duracion+= cancion.getDuracion();
-		}
-		
-		return duracion;
+		return listaDada.stream()
+				.mapToDouble(Cancion::getDuracion)
+				.sum();
 	}
 	
 	public List<Cancion> hacerPlaylistDuracion (double duracion) {
 		
 		List<Cancion> listaCancionesAleatoria = new ArrayList<Cancion>();
 		
-		do {
+		double redondeo = 0;
+		
+		while (redondeo != duracion) {
 			
 			listaCancionesAleatoria.add(getCancionAleatoria());
 			
-		}while (getDuracionLista(listaCancionesAleatoria) != duracion);
+			redondeo = Math.round(getDuracionLista(listaCancionesAleatoria)*100) / 100;
+			
+		}
 		
 		return listaCancionesAleatoria;
 	}
