@@ -1,7 +1,11 @@
 package ejercicio03;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Playlist {
 
@@ -9,6 +13,7 @@ public class Playlist {
 	//Atributos
 	
 	private List<Cancion> listaCanciones;
+	private Random random = new Random();
 
 	
 	//Constructor
@@ -81,11 +86,6 @@ public class Playlist {
 				.toList();
 	}
 	
-	public long numCancionesDuracion (List<Cancion> listaPorDuracion) {
-		
-		return listaPorDuracion.stream()
-				.count();
-	}
 	
 	public double duracionTotalPlaylist () {
 		
@@ -93,6 +93,7 @@ public class Playlist {
 				.mapToDouble(Cancion::getDuracion)
 				.sum();				
 	}
+	
 	
 	
 	public void mostrarTodo () {
@@ -104,6 +105,36 @@ public class Playlist {
 		
 		listaParametro.stream()
 		.forEach(System.out::println);
+	}
+	
+	
+	private Cancion getCancionAleatoria () {
+		
+		return listaCanciones.get(random.nextInt(listaCanciones.size()));
+	}
+	
+	public double getDuracionLista(List<Cancion> listaDada) {
+		
+		double duracion = 0;
+		
+		for (Cancion cancion : listaDada) {
+			duracion+= cancion.getDuracion();
+		}
+		
+		return duracion;
+	}
+	
+	public List<Cancion> hacerPlaylistDuracion (double duracion) {
+		
+		List<Cancion> listaCancionesAleatoria = new ArrayList<Cancion>();
+		
+		do {
+			
+			listaCancionesAleatoria.add(getCancionAleatoria());
+			
+		}while (getDuracionLista(listaCancionesAleatoria) != duracion);
+		
+		return listaCancionesAleatoria;
 	}
 	
 }

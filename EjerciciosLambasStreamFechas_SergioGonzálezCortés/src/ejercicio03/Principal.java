@@ -28,11 +28,13 @@ public class Principal {
 		listaCanciones.add(new Cancion ("Die For You", "The Weeknd", 4.16, "Pop"));
 		listaCanciones.add(new Cancion ("No", "Subhumans", 1.38, "Punk"));
 		listaCanciones.add(new Cancion ("Doomed", "Bring Me The Horizon", 4.35, "Post Hardcore"));
-		listaCanciones.add(new Cancion ("DiE4u", "Bring Me The Horizon", 3.29, "Post Hardcore/Rock"));
+		listaCanciones.add(new Cancion ("DiE4u", "Bring Me The Horizon", 3.29, "Post Hardcore"));
 		listaCanciones.add(new Cancion ("La traviata - Brindisi", "Luciano Pavarotti", 5.03, "Música clásica"));
 		listaCanciones.add(new Cancion ("Dale comba", "Canelita", 4.34, "Framenkito"));
 		listaCanciones.add(new Cancion ("A quien le voy a contar mis penas", "Canelita", 3.23, "Framenkito"));
-		
+		listaCanciones.add(new Cancion ("Death Breath", "Bring Me The Horizon", 4.23, "Hardcore Punk"));
+		listaCanciones.add(new Cancion ("If I'm James Dean You're Audrey Hepburn", "Sleeping With Sirens", 3.40, "Post Hardcore"));
+		listaCanciones.add(new Cancion ("ICARUS", "Tonny Ann", 3.20, "Música clásica"));
 		
 		
 		//Instancia de Playlist agregando la lista de canciones
@@ -46,7 +48,7 @@ public class Principal {
 			
 			System.out.println("""
 					
-					
+					--------------------------------------------------------
 					Opción 1:	Agregar canción
 					Opción 2:	Borrar canción
 					Opción 3:	Ver todas las canciones
@@ -55,8 +57,9 @@ public class Principal {
 					Opción 6:	Ver canciones por duración
 					Opción 7:	Ver canciones por género musical
 					Opción 8:	Ver duración en total playlist
+					Opción 9:	Hacer playlist aleatoria
 					Opción 0:	Salir
-					
+					--------------------------------------------------------
 					
 					""");
 			
@@ -152,6 +155,15 @@ public class Principal {
 			
 					break;
 					
+				case 9:
+					
+					System.out.println("Qué duracion quiere que tenga la playlist");
+					aux = s.nextLine();
+					duracion = Double.parseDouble(aux);
+					p.mostrarPorParametros(p.hacerPlaylistDuracion(duracion));
+					
+					break;
+					
 				case 0:
 					
 					System.out.println("***********");
@@ -172,6 +184,7 @@ public class Principal {
 			
 		}while (opc != 0);
 		
+	
 		System.out.println();
 		System.out.println("--------------------------------");
 		System.out.println("Gracias por utilizar el programa");
