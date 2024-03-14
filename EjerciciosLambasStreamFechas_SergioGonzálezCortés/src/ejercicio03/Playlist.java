@@ -129,8 +129,6 @@ public class Playlist {
 		while ((Math.round(getDuracionLista(listaCancionesAleatoria) * 100) / 100.00)  != duracion) {
 			
 			listaCancionesAleatoria.add(getCancionAleatoria());
-			
-			
 		}
 		
 		return listaCancionesAleatoria;
