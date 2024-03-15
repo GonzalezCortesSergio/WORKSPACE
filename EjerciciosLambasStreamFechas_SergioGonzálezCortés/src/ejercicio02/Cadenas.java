@@ -88,19 +88,14 @@ public class Cadenas {
 				.toList();
 	}
 	
-	public String unirPrimeraLetra () {
+	
+	public String unirPrimeraLetra() {		
 		
-		char primeraLetra;
-		String letrasUnidas = "";
 		
-		for (String string : listaCadenas) {
-			
-			primeraLetra = string.charAt(0);
-			letrasUnidas+= primeraLetra;
-		}
+		return listaCadenas.stream()
+				.map((s) -> s.substring(0, 1))
+				.collect(Collectors.joining());
 		
-		return letrasUnidas;
-						
 	}
 	
 }
