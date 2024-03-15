@@ -10,6 +10,7 @@ public class Principal {
 		//Variables
 		
 		int numero1 = 0, numero2 = 0, opc;
+		double comprobante;
 		String aux;
 		
 		//Scanner
@@ -64,8 +65,7 @@ public class Principal {
 				break;
 				
 			case 1:
-				numero1 = 0;
-				numero2 = 0;
+				comprobante = 0;
 				
 				System.out.println("Introduzca dos números enteros");
 				
@@ -76,6 +76,8 @@ public class Principal {
 					numero1 = Integer.parseInt(aux);
 				}catch (Exception e) {
 					
+					comprobante = Double.NaN;
+					
 					System.out.println("Escriba un número entero porfavor");
 				}
 				
@@ -85,13 +87,17 @@ public class Principal {
 					
 					numero2 = Integer.parseInt(aux);
 				}catch (Exception e) {
+					comprobante = Double.NaN;
 					
 					System.out.println("Escriba un número entero porfavor");
 				}
 				
-				if (numero1 == 0 && numero2 == 0) {
+				if (Double.isNaN(comprobante)) {
 					
+					System.out.println();
+					System.out.println("***********************************");
 					System.out.println("No se ha podido realizar el cálculo");
+					System.out.println("***********************************");
 				}else {
 					
 					System.out.printf("El resultado de la suma es %d\n", c.sumar(numero1, numero2));
@@ -101,8 +107,7 @@ public class Principal {
 				break;
 				
 			case 2:
-				numero1 = 0;
-				numero2 = 0;
+				comprobante = 0;
 				
 				System.out.println("Introduzca dos números enteros");
 				aux = s.nextLine();
@@ -112,6 +117,7 @@ public class Principal {
 					numero1 = Integer.parseInt(aux);
 				}catch (Exception e) {
 					
+					comprobante = Double.NaN;
 					System.out.println("Escriba un número entero porfavor");
 				}
 				
@@ -122,12 +128,18 @@ public class Principal {
 					numero2 = Integer.parseInt(aux);
 				}catch (Exception e) {
 					
+					comprobante = Double.NaN;
+					
 					System.out.println("Escriba un número entero porfavor");
 				}
 				
-				if (numero1 == 0 && numero2 == 0) {
+				if (Double.isNaN(comprobante)) {
 					
+					System.out.println();
+					System.out.println("***********************************");
 					System.out.println("No se ha podido realizar el cálculo");
+					System.out.println("***********************************");
+					
 				}else {
 					
 					System.out.printf("El resultado de la resta es %d\n", c.restar(numero1, numero2));
@@ -136,8 +148,7 @@ public class Principal {
 				break;
 				
 			case 3:
-				numero1 = 0;
-				numero2 = 0;
+				comprobante = 0;
 				
 				System.out.println("Introduzca dos números enteros");
 				
@@ -162,14 +173,20 @@ public class Principal {
 					System.out.println("Introduzca un número entero porfavor");
 				}
 				
-				System.out.printf("El resultado de la multiplicación es %d\n", c.multiplicar(numero1, numero2));
+				if (Double.isNaN(comprobante)) {
+					
+					System.out.println("No se ha podido realizar la multiplicación");
+				}else {
+				
+					System.out.printf("El resultado de la multiplicación es %d\n", c.multiplicar(numero1, numero2));
+				
+				}
 				
 				break;
 				
 				
 			case 4:
-				numero1 = 0;
-				numero2 = 0;
+				comprobante = 0;
 				
 				System.out.println("Introduzca dos números enteros");
 				
@@ -180,6 +197,7 @@ public class Principal {
 					numero1 = Integer.parseInt(aux);
 				}catch (Exception e) {
 					
+					comprobante = Double.NaN;
 					System.out.println("Introduzca un número entero porfavor");
 				}
 				
@@ -189,14 +207,16 @@ public class Principal {
 					
 					numero2 = Integer.parseInt(aux);
 				}catch (Exception e) {
-					
+					comprobante = Double.NaN;
 					System.out.println("Introduzca un número entero porfavor");
 				}
 				
-				if (c.calcularRaizCuadrada(numero1) == Double.NaN) {
+				if (Double.isNaN(c.dividir(numero1, numero2))) {
 
-					
+					System.out.println();
+					System.out.println("*********************************");
 					System.out.println("No se ha podido hacer la división");
+					System.out.println("*********************************");
 					
 
 				}else {
@@ -222,16 +242,17 @@ public class Principal {
 					System.out.println("Introduzca un número entero porfavor");
 				}
 				
-				double resultado = c.calcularRaizCuadrada(numero1);
 				
-				if(resultado ==  Double.NaN) {
+				if(Double.isNaN(c.calcularRaizCuadrada(numero1))) {
 
-					
+					System.out.println();
+					System.out.println("**************************************");
 					System.out.println("No se ha podido hacer la raíz cuadrada");
+					System.out.println("**************************************");
 
 				}else {
 					
-					System.out.printf("El resultado de la raíz cuadrada es %.2f\n", resultado);
+					System.out.printf("El resultado de la raíz cuadrada es %.2f\n", c.calcularRaizCuadrada(numero1));
 				}
 				
 				
