@@ -9,8 +9,9 @@ public class Principal {
 
 		//Variables
 		
-		int numero1 = 0, numero2 = 0, opc = -1;
+		int numero1 = 0, numero2 = 0, opc;
 		String aux;
+		boolean salir = false;
 		
 		//Scanner
 		
@@ -54,9 +55,6 @@ public class Principal {
 			switch (opc) {
 			
 				
-				case -1:
-					
-					break;
 					
 					
 				case 1:
@@ -153,6 +151,8 @@ public class Principal {
 				System.out.println("Saliendo...");
 				System.out.println("***********");
 				
+				salir = true;
+				
 				break;
 				
 			default:
@@ -176,7 +176,7 @@ public class Principal {
 			}
 		
 			
-		}while (opc != 0);
+		}while (!salir);
 		
 		System.out.println();
 		System.out.println("--------------------------------");
