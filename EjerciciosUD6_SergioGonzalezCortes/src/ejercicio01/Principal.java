@@ -66,6 +66,9 @@ public class Principal {
 				
 			case 1:
 				comprobante = 0;
+				numero1 = 0;
+				numero2 = 0;
+				
 				
 				System.out.println("Introduzca dos números enteros");
 				
@@ -107,6 +110,8 @@ public class Principal {
 				break;
 				
 			case 2:
+				numero1 = 0;
+				numero2 = 0;
 				comprobante = 0;
 				
 				System.out.println("Introduzca dos números enteros");
@@ -148,6 +153,8 @@ public class Principal {
 				break;
 				
 			case 3:
+				numero1 = 0;
+				numero2 = 0;
 				comprobante = 0;
 				
 				System.out.println("Introduzca dos números enteros");
@@ -186,6 +193,9 @@ public class Principal {
 				
 				
 			case 4:
+				
+				numero1 = 0;
+				numero2 = 0;
 				comprobante = 0;
 				
 				System.out.println("Introduzca dos números enteros");
@@ -227,8 +237,10 @@ public class Principal {
 				break;
 				
 			case 5:
+				
 				numero1 = 0;
 				numero2 = 0;
+				
 				
 				System.out.println("Introduzca un número entero");
 				
@@ -284,6 +296,7 @@ public class Principal {
 		System.out.println("--------------------------------");
 		System.out.println("Gracias por utilizar el programa");
 		System.out.println("--------------------------------");
+		s.close();
 	
 	}
 
