@@ -37,5 +37,7 @@ public class Principal {
 			System.out.println("Error inesperado");
 		}
 		
+		s.close();
+		
 	}
 }
