@@ -167,6 +167,9 @@ public class Principal {
 			}catch(ArithmeticException ae) {
 				
 				System.err.println("Nos ce puede dividi entres cero");
+			}catch (NaNException ne) {
+				
+				System.err.println(ne.getMessage());
 			}catch (Exception e) {
 				
 				System.err.println("Churra introduce un numerichi");

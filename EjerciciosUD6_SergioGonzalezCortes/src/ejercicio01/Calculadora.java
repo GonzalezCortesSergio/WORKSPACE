@@ -25,8 +25,12 @@ public class Calculadora {
 		return numero1 /numero2;
 	}
 	
-	public double calcularRaizCuadrada (int numero) {
+	public double calcularRaizCuadrada (int numero) throws NaNException{
 		
+		if (Double.isNaN(Math.sqrt(numero))) {
+			
+			throw new NaNException();
+		}
 		return Math.sqrt((double)numero);
 	}
 }
