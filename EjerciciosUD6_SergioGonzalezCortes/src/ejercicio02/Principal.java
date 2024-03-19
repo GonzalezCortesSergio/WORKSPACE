@@ -11,8 +11,8 @@ public class Principal {
 		
 		double gradosCelsius, gradosFahrenheit;
 		String aux;
-		int opc = -1;
-		
+		int opc ;
+		boolean salir = false;
 		//Scanner
 		
 		Scanner s = new Scanner(System.in);
@@ -42,15 +42,10 @@ public class Principal {
 						System.out.println("Introduzca la temperatura en grados Fahrenheit");
 						aux = s.nextLine();
 						gradosFahrenheit = Double.parseDouble(aux);
-						
-						try {
 							
-							System.out.printf("%.2f grados Fahrenheit son %.2f grados Celsius\n", gradosFahrenheit, c.convertirACelsius(gradosFahrenheit));
+						System.out.printf("%.2f grados Fahrenheit son %.2f grados Celsius\n", gradosFahrenheit, c.convertirACelsius(gradosFahrenheit));
 						
-						}catch (TempValueException tve) {
-							
-							System.out.println(tve.getMessage());
-						}
+						
 				
 						break;
 						
@@ -77,6 +72,7 @@ public class Principal {
 						System.out.println("Saliendo...");
 						System.out.println("***********");
 						
+						salir = true;
 						break;
 						
 					default:
@@ -91,12 +87,22 @@ public class Principal {
 				
 				}
 
+			}catch (NumberFormatException nfe) {
+				
+				System.out.println("*******************************");
+				System.out.println("Introduce un número churrica");
+				System.out.println("*******************************");
+			}catch (TempValueException tve) {
+				
+				System.out.println(tve.getMessage());
 			}catch (Exception e) {
 				
-				System.out.println("Introduce un número churrica");
+				System.out.println("*******************");
+				System.out.println("Error inesperadorl");
+				System.out.println("*******************");
 			}
 			
-		}while(opc != 0);
+		}while(!salir);
 		
 		s.close();
 	}

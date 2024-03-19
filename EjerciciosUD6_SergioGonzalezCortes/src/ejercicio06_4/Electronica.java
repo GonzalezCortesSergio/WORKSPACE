@@ -15,7 +15,7 @@ public class Electronica extends Producto{
 	@Override
 	public double calcularPVP(double porcentajeEl, double porcentajeAl) {
 		// TODO Auto-generated method stub
-		return getPrecioUnitario() + (getPrecioUnitario() * porcentajeEl / 100);;
+		return getPrecioUnitario() + (getPrecioUnitario() * porcentajeEl / 100);
 	}
 	
 	

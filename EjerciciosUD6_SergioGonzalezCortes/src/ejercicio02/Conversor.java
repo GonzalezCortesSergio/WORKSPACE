@@ -7,10 +7,10 @@ public class Conversor {
 	public double convertirAFahrenheit (double gradosCelsius) throws TempValueException{
 	
 		if (gradosCelsius <= -273) {
-			throw new TempValueException();
+			throw new TempValueException("No pueden haber temperaturas inferiores a -273ºC");
 		}
 		
-		return (gradosCelsius * (9/5)) + 32;
+		return (gradosCelsius * 9.0/5.0) + 32;
 	
 	}
 	
@@ -18,10 +18,10 @@ public class Conversor {
 		
 		double gradosCelsius;
 		
-		gradosCelsius = (gradosFahrenheit - 32) * 5/9;
+		gradosCelsius = (gradosFahrenheit - 32) * 5.0/9.0;
 		
 		if (gradosCelsius <= -273) {
-			throw new TempValueException();
+			throw new TempValueException("No pueden haber temperaturas inferiores a -273ºC");
 		}
 		
 		return gradosCelsius;
