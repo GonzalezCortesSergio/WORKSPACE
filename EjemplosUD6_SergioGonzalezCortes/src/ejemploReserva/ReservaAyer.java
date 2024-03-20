@@ -1,6 +1,6 @@
 package ejemploReserva;
 
-public class ReservaAyer extends Exception{
+public class ReservaAyer extends RuntimeException{
 
 	/**
 	 * 

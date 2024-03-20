@@ -1,6 +1,7 @@
 package ejemploReserva;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class Reserva {
@@ -34,8 +35,12 @@ public class Reserva {
 	
 	public void mostrarTodo () {
 		
-		listaFechas.stream()
-		.forEach(System.out::println);
+		DateTimeFormatter df = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		
+		for (LocalDate localDate : listaFechas) {
+			
+			System.out.println(localDate.format(df));
+		}
 		
 	}
 	
@@ -45,7 +50,12 @@ public class Reserva {
 			throw new ReservaAyer("Ya ha pasao eso chiki");
 			
 		
-		return listaFechas.get(indice-1);
+		return listaFechas.get(indice);
+	}
+	
+	public void crearReserva (LocalDate fesha) {
+		
+		listaFechas.add(fesha);
 	}
 	
 	
