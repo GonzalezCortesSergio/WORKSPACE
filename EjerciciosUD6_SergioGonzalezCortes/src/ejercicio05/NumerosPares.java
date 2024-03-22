@@ -27,7 +27,7 @@ public class NumerosPares {
 	
 	public void agregarNumeros (int numero) throws NumImpar {
 		
-		if (numero % 2 == 0)
+		if (numero % 2 != 0)
 			throw new NumImpar("El número introducido es impar");
 		
 		listaNumerosPares.add(numero);
