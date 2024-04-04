@@ -1,5 +1,7 @@
 package ejercicio;
 
+import java.util.regex.Pattern;
+
 public class Caja {
 
 	
@@ -33,7 +35,9 @@ public class Caja {
 
 	public void activarCaja (String codigo) throws CodigoIncorrecto{
 		
-		if (codigo.length() != 5)
+		String regex = "[a-zA-Z][0-9]{4}";
+		
+		if (!codigo.matches(regex))
 			throw new CodigoIncorrecto("El código debe empezar por una letra inicial, seguida de 4 números");
 		
 		System.out.println("Se ha activado la caja correctamente");

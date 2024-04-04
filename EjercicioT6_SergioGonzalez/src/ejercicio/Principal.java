@@ -113,7 +113,7 @@ public class Principal {
 				System.out.println("******************************************************************");
 				System.out.println(ci.getMessage());
 				System.out.println("******************************************************************");
-			}catch (Exception e) {
+			}catch (RuntimeException re) {
 				
 				System.out.println("****************");
 				System.out.println("Error inesperado");
